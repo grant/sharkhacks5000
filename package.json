@@ -45,6 +45,7 @@
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "immutable": "^3.8.1",
+    "jade": "^1.11.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
@@ -59,7 +60,6 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "express": "4.13.3",
-    "jade": "^1.11.0",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "eslint": "^3.8.1",
