@@ -24,14 +24,14 @@ const paths = {
 
 gulp.task('lint', () =>
   gulp.src([
-      paths.allSrcJs,
-      paths.gulpFile,
-      paths.webpackFile,
-    ])
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-    .pipe(flow({ abort: true }))
+    paths.allSrcJs,
+    paths.gulpFile,
+    paths.webpackFile,
+  ])
+  .pipe(eslint())
+  .pipe(eslint.format())
+  //.pipe(eslint.failAfterError())
+  .pipe(flow({ abort: true }))
 );
 
 gulp.task('clean', () => del([
