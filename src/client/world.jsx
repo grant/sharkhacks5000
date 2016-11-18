@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import Sky from './Sky';
+import Sky from './Sky.jsx';
 
 /**
  * # World Organization

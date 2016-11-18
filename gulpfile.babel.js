@@ -53,7 +53,6 @@ gulp.task('test', ['build'], () =>
 gulp.task('main', ['test'], () =>
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack({
-      context: __dirname,
       output: {
         filename: 'client-bundle.js',
       },
