@@ -3,7 +3,7 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
-import flow from 'gulp-flowtype';
+//import flow from 'gulp-flowtype';
 import util from 'gulp-util';
 import mocha from 'gulp-mocha';
 import del from 'del';
@@ -31,7 +31,6 @@ gulp.task('lint', () =>
   ])
   .pipe(eslint())
   .pipe(eslint.format())
-  .pipe(flow({ abort: true }))
 );
 
 gulp.task('clean', () => del([
