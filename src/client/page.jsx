@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import World from './World.jsx';
+import World from './World';
 
 const styles = {
   base: {

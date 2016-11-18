@@ -10,6 +10,10 @@ import del from 'del';
 import webpack from 'webpack-stream';
 var w = require('webpack');
 
+import path from 'path';
+
+path.resolve(__dirname, "app")
+
 const paths = {
   allSrcJs: 'src/**/*.js?(x)',
   serverSrcJs: 'src/server/**/*.js?(x)',
