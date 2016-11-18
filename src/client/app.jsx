@@ -4,7 +4,7 @@ import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Page from './page';
+import Page from './Page';
 
 window.onload = () => {
   ReactDOM.render(<Page />, document.querySelector('.app'));
