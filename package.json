@@ -46,6 +46,7 @@
     "babel-polyfill": "^6.16.0",
     "immutable": "^3.8.1",
     "jade": "^1.11.0",
+    "radium": "^0.18.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
