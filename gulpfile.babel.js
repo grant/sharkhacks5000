@@ -3,12 +3,12 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
-//import flow from 'gulp-flowtype';
+import flow from 'gulp-flowtype';
 import util from 'gulp-util';
 import mocha from 'gulp-mocha';
 import del from 'del';
 import webpack from 'webpack-stream';
-import webpackConfig from './webpack.config.babel';
+var w = require('webpack');
 
 const paths = {
   allSrcJs: 'src/**/*.js?(x)',
@@ -25,12 +25,13 @@ const paths = {
 
 gulp.task('lint', () =>
   gulp.src([
-    paths.allSrcJs,
-    paths.gulpFile,
-    paths.webpackFile,
-  ])
-  .pipe(eslint())
-  .pipe(eslint.format())
+      paths.allSrcJs,
+      paths.gulpFile,
+      paths.webpackFile,
+    ])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(flow({abort: false}))
 );
 
 gulp.task('clean', () => del([
@@ -51,10 +52,62 @@ gulp.task('test', ['build'], () =>
 
 gulp.task('main', ['test'], () =>
   gulp.src(paths.clientEntryPoint)
-    .pipe(webpack(webpackConfig))
+    .pipe(webpack({
+      output: {
+        filename: 'client-bundle.js',
+      },
+      devtool: 'source-map',
+      module: {
+        loaders: [
+          {
+            test: /\.jsx?$/,
+            loader: 'babel-loader',
+            exclude: [/node_modules/],
+          },
+        ],
+      },
+      resolve: {
+        extensions: ['', '.js', '.jsx'],
+      },
+    }))
     .pipe(gulp.dest(paths.distDir))
     .on('error', util.log)
 );
+
+gulp.task('prod', ['clean'], () => {
+  gulp.src(paths.clientEntryPoint)
+    .pipe(webpack({
+      output: {
+        filename: 'client-bundle.js',
+      },
+      module: {
+        loaders: [
+          {
+            test: /\.jsx?$/,
+            loader: 'babel-loader',
+            exclude: [/node_modules/],
+          },
+        ],
+      },
+      plugins: [
+        new w.DefinePlugin({
+          'process.env': {
+            NODE_ENV: JSON.stringify('production')
+          }
+        }),
+        new w.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
+      ],
+      resolve: {
+        extensions: ['', '.js', '.jsx'],
+      },
+    }))
+    .pipe(gulp.dest(paths.distDir))
+    .on('error', util.log)
+});
 
 gulp.task('watch', () => {
   gulp.watch(paths.allSrcJs, ['main']);

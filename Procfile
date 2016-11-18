@@ -1,1 +1,1 @@
-web: node node_modules/gulp/bin/gulp main && npm start
+web: node node_modules/gulp/bin/gulp prod && npm start
