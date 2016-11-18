@@ -7,10 +7,5 @@ import ReactDOM from 'react-dom';
 import Page from './page';
 
 window.onload = () => {
-  ReactDOM.render(
-    <div>
-      <Page />
-    </div>
-    , document.querySelector('.app')
-  );
+  ReactDOM.render(<Page />, document.querySelector('.app'));
 };
