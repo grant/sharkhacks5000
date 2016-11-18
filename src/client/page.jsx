@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import Radium from 'radium';
 
+const styles = {
+  base: {
+    color: '#aaa',
+  },
+};
+
+@Radium
 export default class Page extends Component {
   render() {
-    if (this.window) {
-      return null;
-    }
-    return <div>33there</div>;
+    return <div
+      style={[styles.base]}
+    >33thewegre</div>;
   }
 }
