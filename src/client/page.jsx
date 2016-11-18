@@ -5,6 +5,6 @@ export default class Page extends Component {
     if (this.window) {
       return null;
     }
-    return <div>hihi</div>;
+    return <div>33there</div>;
   }
 }

@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "gulp-util": "^3.0.7",
     "immutable": "^3.8.1",
     "jade": "^1.11.0",
     "radium": "^0.18.1",

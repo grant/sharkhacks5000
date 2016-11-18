@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
 import flow from 'gulp-flowtype';
+import util from 'gulp-util';
 import mocha from 'gulp-mocha';
 import del from 'del';
 import webpack from 'webpack-stream';
@@ -53,6 +54,7 @@ gulp.task('main', ['test'], () =>
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(paths.distDir))
+    .on('error', util.log)
 );
 
 gulp.task('watch', () => {
