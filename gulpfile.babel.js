@@ -12,8 +12,6 @@ var w = require('webpack');
 
 import path from 'path';
 
-path.resolve(__dirname, "app")
-
 const paths = {
   allSrcJs: 'src/**/*.js?(x)',
   serverSrcJs: 'src/server/**/*.js?(x)',
@@ -94,11 +92,11 @@ gulp.task('prod', ['clean'], () => {
         ],
       },
       plugins: [
-        new w.DefinePlugin({
-          'process.env': {
-            NODE_ENV: JSON.stringify('production')
-          }
-        }),
+        //new w.DefinePlugin({
+        //  'process.env': {
+        //    NODE_ENV: JSON.stringify('production')
+        //  }
+        //}),
         new w.optimize.UglifyJsPlugin({
           compress: {
             warnings: false
