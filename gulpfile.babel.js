@@ -92,11 +92,11 @@ gulp.task('prod', ['clean'], () => {
         ],
       },
       plugins: [
-        //new w.DefinePlugin({
-        //  'process.env': {
-        //    NODE_ENV: JSON.stringify('production')
-        //  }
-        //}),
+        new w.DefinePlugin({
+          'process.env': {
+            NODE_ENV: JSON.stringify('production')
+          }
+        }),
         new w.optimize.UglifyJsPlugin({
           compress: {
             warnings: false
