@@ -1,6 +1,6 @@
 import Constants from './../constants';
 import React, { Component } from 'react';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 import World from './World';
 
 const styles = {
@@ -54,13 +54,15 @@ export default class Page extends Component {
 
   render() {
     return (
-      <div
-        className={'Page'}
-        style={[styles.base]}
-      >
-        <World />
-        {Page.getResetStyles()}
-      </div>
+      <StyleRoot>
+        <div
+          className={'Page'}
+          style={[styles.base]}
+        >
+          <World />
+          {Page.getResetStyles()}
+        </div>
+      </StyleRoot>
     );
   }
 }
