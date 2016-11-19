@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import Constants from './constants';
+import Constants from './../constants';
 
 @Radium
 export default class Sky extends Component {
@@ -12,6 +12,15 @@ export default class Sky extends Component {
         position: 'relative',
         backgroundColor: Constants.color.green
       }}>
+        <section className="clouds">
+          <div className="cloud" style={{
+            width: '10px',
+            height: '10px',
+            position: 'absolute',
+            backgroundColor: 'white',
+          }}
+          >cloud</div>
+        </section>
         <div className="moon" style={{
           width: `${moonSize}px`,
           height: `${moonSize}px`,

@@ -1,4 +1,4 @@
-import Constants from './constants';
+import Constants from './../constants';
 import React, { Component } from 'react';
 import Radium from 'radium';
 import World from './World';
