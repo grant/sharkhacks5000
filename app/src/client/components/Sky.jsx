@@ -11,6 +11,7 @@ export default class Sky extends Component {
    */
   createCloud(styles = {}) {
     styles = Object.assign(styles, {
+      zIndex: 100,
       width: '10px',
       height: '10px',
       position: 'absolute',
@@ -25,6 +26,7 @@ export default class Sky extends Component {
    */
   render() {
     const moonSize = 240;
+    const cloudSpeed = 100; // seconds
     return (
       <div className='Sky' style={{
         height: '400px',
@@ -34,12 +36,34 @@ export default class Sky extends Component {
       }}>
         <section className="clouds">
           {this.createCloud({
-            top: '50px',
-            left: '40%',
+            top: '25%',
+            animation: `cloud1 ${cloudSpeed}s linear infinite`,
+            animationName: Radium.keyframes({
+              '0%': {left: '10%'},
+              '15%': {left: '4%'},
+              '30%': {left: '20%'},
+              '70%': {left: '80%'},
+              '100%': {left: '10%'},
+            }, 'pulse')
           })}
           {this.createCloud({
-            top: '80px',
-            left: '10%',
+            top: '50%',
+            animation: `cloud2 ${cloudSpeed * 1.1}s linear infinite`,
+            animationName: Radium.keyframes({
+              '0%': {left: '80%'},
+              '50%': {left: '20%'},
+              '100%': {left: '80%'},
+            }, 'pulse')
+          })}
+          {this.createCloud({
+            top: '75%',
+            animation: `cloud3 ${cloudSpeed * 0.9}s linear infinite`,
+            animationName: Radium.keyframes({
+              '0%': {left: '15%'},
+              '50%': {left: '110%'},
+              '50.0001%': {left: '-20%'},
+              '100%': {left: '15%'},
+            }, 'pulse')
           })}
         </section>
         <div className="moon" style={{
