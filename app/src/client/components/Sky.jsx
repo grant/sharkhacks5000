@@ -29,6 +29,7 @@ export default class Sky extends Component {
       <div className='Sky' style={{
         height: '400px',
         position: 'relative',
+        overflow: 'hidden',
         backgroundColor: Constants.color.green
       }}>
         <section className="clouds">
@@ -44,16 +45,16 @@ export default class Sky extends Component {
         <div className="moon" style={{
           width: `${moonSize}px`,
           height: `${moonSize}px`,
-          margin: `0 calc(50% - ${moonSize/2}px)`,
+          margin: `-100px calc(50% - ${moonSize/2}px)`,
           position: 'absolute',
           bottom: '0',
 
-          animation: 'namename 3s ease 0s infinite',
-          animationName: Radium.keyframes({
-            '0%': {width: '10%'},
-            '50%': {width: '50%'},
-            '100%': {width: '11%'},
-          }, 'pulse'),
+          //animation: 'namename 3s ease 0s infinite',
+          //animationName: Radium.keyframes({
+          //  '0%': {width: '10%'},
+          //  '50%': {width: '50%'},
+          //  '100%': {width: '11%'},
+          //}, 'pulse'),
           backgroundColor: Constants.color.gray
         }}>moon
         </div>
