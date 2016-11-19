@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 import Sky from './Sky';
+import Sea from './Sea';
 
 /**
  * # World Organization
@@ -51,10 +52,7 @@ export default class World extends Component {
         }
       }>
         <Sky />
-        {/*
-         <Ocean />
-         <Sea />
-        */}
+        <Sea />
       </div>
     );
   }
