@@ -13,11 +13,11 @@ var w = require('webpack');
 import path from 'path';
 
 const paths = {
-  allSrcJs: 'src/**/*.js?(x)',
-  serverSrcJs: 'src/server/**/*.js?(x)',
-  sharedSrcJs: 'src/shared/**/*.js?(x)',
+  allSrcJs: 'app/src/**/*.js?(x)',
+  serverSrcJs: 'app/src/server/**/*.js?(x)',
+  sharedSrcJs: 'app/src/shared/**/*.js?(x)',
   allLibTests: 'lib/test/**/*.js',
-  clientEntryPoint: 'src/client/cliententry.jsx',
+  clientEntryPoint: 'app/src/client/cliententry.jsx',
   clientBundle: 'dist/client-bundle.js?(.map)',
   gulpFile: 'gulpfile.babel.js',
   webpackFile: 'webpack.config.babel.js',
