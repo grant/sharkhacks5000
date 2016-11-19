@@ -17,7 +17,7 @@ const paths = {
   serverSrcJs: 'src/server/**/*.js?(x)',
   sharedSrcJs: 'src/shared/**/*.js?(x)',
   allLibTests: 'lib/test/**/*.js',
-  clientEntryPoint: 'src/client/app.jsx',
+  clientEntryPoint: 'src/client/cliententry.jsx',
   clientBundle: 'dist/client-bundle.js?(.map)',
   gulpFile: 'gulpfile.babel.js',
   webpackFile: 'webpack.config.babel.js',
