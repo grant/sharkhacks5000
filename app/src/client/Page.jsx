@@ -1,3 +1,4 @@
+import Constants from './constants';
 import React, { Component } from 'react';
 import Radium from 'radium';
 import World from './World';
@@ -5,6 +6,7 @@ import World from './World';
 const styles = {
   base: {
     color: '#aaa',
+    fontFamily: Constants.font.family,
   },
 };
 
@@ -22,6 +24,7 @@ export default class Page extends Component {
             padding: 0,
             border: 0,
             fontSize: 0,
+
             font: 'inherit',
             verticalAlign: 'baseline',
           },

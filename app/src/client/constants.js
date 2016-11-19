@@ -1,5 +1,8 @@
 export default {
-  colors: {
-    green: '#ddd'
+  color: {
+    green: 'rgb(162, 198, 150)'
+  },
+  font: {
+    family: 'Courier New'
   }
 };

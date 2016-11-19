@@ -8,7 +8,7 @@ export default class Sky extends Component {
     return (
       <div className='Sky' style={{
         height: '400px',
-        backgroundColor: Constants.colors.green
+        backgroundColor: Constants.color.green
       }}>
         <div className="moon">moon</div>
       </div>
