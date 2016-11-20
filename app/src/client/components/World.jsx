@@ -48,7 +48,8 @@ export default class World extends Component {
       <div
         className='World'
         style={{
-          color: 'blue'
+          color: 'blue',
+          overflow: 'hidden',
         }
       }>
         <Sky />
