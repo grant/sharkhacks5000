@@ -39,11 +39,11 @@ export default class Sky extends Component {
    * @returns {XML}
    */
   render() {
-    const moonSize = 241;
+    const moonSize = 300;
     const cloudSpeed = 100; // seconds
     return (
       <div className='Sky' style={{
-        height: '400px',
+        height: '600px',
         position: 'relative',
         overflow: 'hidden',
         backgroundColor: Constants.color.green

@@ -11,7 +11,7 @@ export default class Surface extends Component {
       let translate = (waveNumber === 1) ? '-20px' : '0';
       return {
         position: 'absolute',
-        width: '110%',
+        width: '210%',
         bottom: '-10px',
         animation: `left-right ${animationDuration} ease-in-out infinite`,
         animationName: Radium.keyframes({
