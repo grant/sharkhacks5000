@@ -9,7 +9,7 @@ export default class Sky extends Component {
    * Returns a cloud
    * @param styles
    */
-  createCloud(styles = {}) {
+  static createCloud(styles = {}) {
     styles = Object.assign(styles, {
       zIndex: 100,
       width: '10px',
@@ -21,11 +21,25 @@ export default class Sky extends Component {
   }
 
   /**
+   * Returns a seagull
+   * @param styles
+   */
+  static createBird(styles = {}) {
+    styles = Object.assign(styles, {
+      width: '5px',
+      height: '5px',
+      position: 'absolute',
+      backgroundColor: 'blue',
+    });
+    return <div className="bird" style={styles}>Gull</div>;
+  }
+
+  /**
    * Renders the sky with a moon, cloud, and other styles
    * @returns {XML}
    */
   render() {
-    const moonSize = 240;
+    const moonSize = 241;
     const cloudSpeed = 100; // seconds
     return (
       <div className='Sky' style={{
@@ -35,7 +49,7 @@ export default class Sky extends Component {
         backgroundColor: Constants.color.green
       }}>
         <section className="clouds">
-          {this.createCloud({
+          {Sky.createCloud({
             top: '25%',
             animation: `cloud1 ${cloudSpeed}s linear infinite`,
             animationName: Radium.keyframes({
@@ -46,7 +60,7 @@ export default class Sky extends Component {
               '100%': {left: '10%'},
             }, 'pulse')
           })}
-          {this.createCloud({
+          {Sky.createCloud({
             top: '50%',
             animation: `cloud2 ${cloudSpeed * 1.1}s linear infinite`,
             animationName: Radium.keyframes({
@@ -55,7 +69,7 @@ export default class Sky extends Component {
               '100%': {left: '80%'},
             }, 'pulse')
           })}
-          {this.createCloud({
+          {Sky.createCloud({
             top: '75%',
             animation: `cloud3 ${cloudSpeed * 0.9}s linear infinite`,
             animationName: Radium.keyframes({
@@ -64,6 +78,11 @@ export default class Sky extends Component {
               '50.0001%': {left: '-20%'},
               '100%': {left: '15%'},
             }, 'pulse')
+          })}
+        </section>
+        <section className="birds">
+          {Sky.createBird({
+            top: '10%'
           })}
         </section>
         <div className="moon" style={{
