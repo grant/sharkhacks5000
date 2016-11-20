@@ -5,7 +5,9 @@ import Radium from 'radium';
 export default class Sea extends Component {
   render() {
     return (
-      <div>Sea</div>
+      <section className='Sea'>
+        Sea
+      </section>
     );
   }
 }

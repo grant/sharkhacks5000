@@ -86,6 +86,7 @@ export default class Sky extends Component {
           })}
         </section>
         <div className="moon" style={{
+          borderRadius: `${moonSize}px`,
           width: `${moonSize}px`,
           height: `${moonSize}px`,
           margin: `-100px calc(50% - ${moonSize/2}px)`,
