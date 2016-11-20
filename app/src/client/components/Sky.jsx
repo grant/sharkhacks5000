@@ -82,6 +82,13 @@ export default class Sky extends Component {
           backgroundColor: Constants.color.gray
         }}>moon
         </div>
+        <h1 className="title" style={{
+          position: 'relative',
+          display: 'block',
+          marginTop: '80px',
+          textAlign: 'center',
+          fontSize: '40px',
+        }}>SharkHacks5000</h1>
       </div>
     );
   }
