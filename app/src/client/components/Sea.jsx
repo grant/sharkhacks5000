@@ -5,8 +5,11 @@ import Radium from 'radium';
 export default class Sea extends Component {
   render() {
     return (
-      <section className='Sea'>
-        Sea
+      <section className='Sea' style={{
+        backgroundColor: 'red',
+      }}>
+        Seassssss
+        <img ref='Boat' src='images/boat.svg' />
       </section>
     );
   }
