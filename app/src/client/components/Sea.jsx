@@ -10,7 +10,7 @@ export default class Sea extends Component {
       let translate = (seaNumber === 1) ? '-20px' : '0';
       return {
         position: 'absolute',
-        top: '-20px',
+        top: '-40px',
         width: '110%',
         bottom: '-10px',
         animation: `left-right ${animationDuration} ease-in-out infinite`,
