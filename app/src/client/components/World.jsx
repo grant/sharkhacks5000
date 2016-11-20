@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 import Sky from './Sky';
-import Sea from './Sea';
+import Sea from './Sea/Sea';
 
 /**
  * # World Organization
