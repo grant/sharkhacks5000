@@ -24,16 +24,36 @@ export default class Sky extends Component {
 
   /**
    * Returns a seagull
+   * SVG from https://www.google.com/search?espv=2&biw=1600&bih=892&tbm=isch&sa=1&q=seagull+svg&oq=seagull+svg&gs_l=img.3..0i24k1.10412.10770.0.10987.3.3.0.0.0.0.81.232.3.3.0....0...1c.1.64.img..0.3.230...0j0i67k1.Rwk_ddKow2w#imgrc=2ywasSRnU9m3IM%3A
    * @param styles
    */
-  static createBird(styles = {}) {
-    styles = Object.assign(styles, {
-      width: '5px',
-      height: '5px',
+  static createBirdCluster(styles = {}) {
+    let bird1Styles = {
       position: 'absolute',
-      backgroundColor: 'blue',
-    });
-    return <div className="bird" style={styles}>Gull</div>;
+      width: '15px',
+      top: '7px',
+      left: '-5px',
+    };
+    let bird2Styles = {
+      position: 'absolute',
+      width: '25px',
+      top: '0px',
+      left: '0px',
+    };
+    let bird3Styles = {
+      position: 'absolute',
+      width: '15px',
+      top: '9px',
+      left: '18px',
+    };
+
+    return <div style={Object.assign(styles, {
+      position: 'absolute'
+    })}>
+      <img className="bird" style={bird1Styles} src='images/seagull.svg' />
+      <img className="bird" style={bird2Styles} src='images/seagull.svg' />
+      <img className="bird" style={bird3Styles} src='images/seagull.svg' />
+    </div>;
   }
 
   /**
@@ -83,8 +103,14 @@ export default class Sky extends Component {
           })}
         </section>
         <section className="birds">
-          {Sky.createBird({
-            top: '10%'
+          {Sky.createBirdCluster({
+            animation: `bird1 ${cloudSpeed * 0.9}s linear infinite`,
+            animationName: Radium.keyframes({
+              '0%': {left: '15%'},
+              '50%': {left: '110%'},
+              '50.0001%': {left: '-20%'},
+              '100%': {left: '15%'},
+            }, 'pulse')
           })}
         </section>
         <div className="moon" style={{
