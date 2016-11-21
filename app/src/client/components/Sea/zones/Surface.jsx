@@ -35,6 +35,7 @@ export default class Surface extends Component {
       <section className='Surface' style={{
         position: 'relative'
       }}>
+        <Boat />
         <img src='images/wave.svg' style={getWaveStyles(1)} />
         <img src='images/wave.svg' style={getWaveStyles(2)} />
       </section>

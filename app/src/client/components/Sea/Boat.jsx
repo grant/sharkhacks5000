@@ -13,7 +13,7 @@ export default class Boat extends Component {
    */
   _updateBoatHeightOffWater() {
     var browserWidth = window.innerWidth;
-    this.refs.Boat.getDOMNode().style.bottom = (Math.pow(browserWidth, 2) / 100000) + 'px';
+    this.refs.Boat.style.bottom = (Math.pow(browserWidth, 2) / 100000) + 'px';
   }
 
   componentDidMount() {
@@ -26,9 +26,16 @@ export default class Boat extends Component {
 
   render() {
     return (
-      <div className='Boat' ref='Boat'>
+      <div className='Boat' ref='Boat' style={{
+        position: 'absolute',
+        left: 0,
+        bottom: '10px',
+        width: '15%',
+      }}>
         <div className='boat-container'>
-          <img ref='img' className='boat-img' src='images/boat.svg' />
+          <img ref='img' style={{
+            width: '100%',
+          }} src='images/boat.svg' />
         </div>
       </div>
     );

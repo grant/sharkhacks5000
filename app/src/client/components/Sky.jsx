@@ -9,15 +9,16 @@ export default class Sky extends Component {
    * Returns a cloud
    * @param styles
    */
-  static createCloud(styles = {}) {
+  static createCloud(name, styles = {}) {
     styles = Object.assign(styles, {
       zIndex: 100,
-      width: '10px',
-      height: '10px',
+      width: '100px',
       position: 'absolute',
-      backgroundColor: 'white',
     });
-    return <div className="cloud" style={styles}>cloud</div>;
+    return <img
+        className="cloud"
+        src={`images/${name}.svg`}
+        style={styles} />;
   }
 
   /**
@@ -49,7 +50,7 @@ export default class Sky extends Component {
         backgroundColor: Constants.color.green
       }}>
         <section className="clouds">
-          {Sky.createCloud({
+          {Sky.createCloud('cloud1', {
             top: '25%',
             animation: `cloud1 ${cloudSpeed}s linear infinite`,
             animationName: Radium.keyframes({
@@ -60,7 +61,7 @@ export default class Sky extends Component {
               '100%': {left: '10%'},
             }, 'pulse')
           })}
-          {Sky.createCloud({
+          {Sky.createCloud('cloud2', {
             top: '50%',
             animation: `cloud2 ${cloudSpeed * 1.1}s linear infinite`,
             animationName: Radium.keyframes({
@@ -69,7 +70,7 @@ export default class Sky extends Component {
               '100%': {left: '80%'},
             }, 'pulse')
           })}
-          {Sky.createCloud({
+          {Sky.createCloud('cloud3', {
             top: '75%',
             animation: `cloud3 ${cloudSpeed * 0.9}s linear infinite`,
             animationName: Radium.keyframes({

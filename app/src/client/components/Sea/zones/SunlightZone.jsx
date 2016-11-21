@@ -5,7 +5,11 @@ import Radium from 'radium';
 export default class SunlightZone extends Component {
   render() {
     return (
-      <div>Sunlight</div>
+      <section style={{
+        background: 'linear-gradient(#00b2e2, #0081bd)',
+        height: '1000px',
+      }}
+      >Sunlight</section>
     );
   }
 }
