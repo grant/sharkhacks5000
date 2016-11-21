@@ -12,7 +12,8 @@ export default class Sky extends Component {
   static createCloud(name, styles = {}) {
     styles = Object.assign(styles, {
       zIndex: 100,
-      width: '100px',
+      width: '200px',
+      opacity: 0.5,
       position: 'absolute',
     });
     return <img
