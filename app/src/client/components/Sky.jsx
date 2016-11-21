@@ -62,7 +62,7 @@ export default class Sky extends Component {
         '85%': {left: '110%', top: '60%'},
         '85.001%': {left: '0%', top: '-5%'},
         '100%': {left: '0%', top: '-5%'},
-      }, 'ease-in-out')
+      }, 'pulse')
     }}>
       {/* This animation bobs the birds up and down, and side-to-side. */}
       <div className='birds' style={Object.assign(styles, {
@@ -155,18 +155,19 @@ export default class Sky extends Component {
           position: 'absolute',
           bottom: '0',
 
-          //animation: 'namename 3s ease 0s infinite',
-          //animationName: Radium.keyframes({
-          //  '0%': {width: '10%'},
-          //  '50%': {width: '50%'},
-          //  '100%': {width: '11%'},
-          //}, 'pulse'),
+          animation: 'bigger 30s ease 0s infinite',
+          animationName: Radium.keyframes({
+            '0%': {transform:'scale(1)'},
+            '50%': {transform:'scale(1.1)'},
+            '100%': {transform:'scale(1)'},
+          }, 'pulse'),
           backgroundColor: Constants.color.gray
         }}>moon
         </div>
         <h1 className="title" style={{
           position: 'relative',
           display: 'block',
+          color: '#555',
           marginTop: '80px',
           textAlign: 'center',
           fontSize: '40px',

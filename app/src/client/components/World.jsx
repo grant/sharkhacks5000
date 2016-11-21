@@ -48,7 +48,6 @@ export default class World extends Component {
       <div
         className='World'
         style={{
-          color: 'blue',
           overflow: 'hidden',
         }
       }>
