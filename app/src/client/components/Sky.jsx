@@ -7,6 +7,7 @@ import Constants from './../constants';
 export default class Sky extends Component {
   /**
    * Returns a cloud
+   * @param name
    * @param styles
    */
   static createCloud(name, styles = {}) {
@@ -17,9 +18,9 @@ export default class Sky extends Component {
       position: 'absolute',
     });
     return <img
-        className="cloud"
-        src={`images/${name}.svg`}
-        style={styles} />;
+      className="cloud"
+      src={`images/${name}.svg`}
+      style={styles}/>;
   }
 
   /**
@@ -28,31 +29,66 @@ export default class Sky extends Component {
    * @param styles
    */
   static createBirdCluster(styles = {}) {
-    let bird1Styles = {
+    let birdStyles = {
       position: 'absolute',
+    };
+    let bird1Styles = Object.assign({
       width: '15px',
       top: '7px',
-      left: '-5px',
-    };
-    let bird2Styles = {
-      position: 'absolute',
+      left: '-9px',
+    }, birdStyles);
+    let bird2Styles = Object.assign({
       width: '25px',
       top: '0px',
       left: '0px',
-    };
-    let bird3Styles = {
-      position: 'absolute',
+    }, birdStyles);
+    let bird3Styles = Object.assign({
       width: '15px',
       top: '9px',
       left: '18px',
-    };
+    }, birdStyles);
 
-    return <div style={Object.assign(styles, {
-      position: 'absolute'
-    })}>
-      <img className="bird" style={bird1Styles} src='images/seagull.svg' />
-      <img className="bird" style={bird2Styles} src='images/seagull.svg' />
-      <img className="bird" style={bird3Styles} src='images/seagull.svg' />
+    // Animate all birds
+    // This animation subtly rotates the birds as they travel left and right
+    return <div className='birdPath' style={{
+      animation: `birdAnim ${60}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
+      position: 'absolute',
+      animationName: Radium.keyframes({
+        '0%': {left: '0%', top: '-5%'},
+        '25%': {left: '20%', top: '30%'},
+        '40%': {left: '80%', top: '70%'},
+        '65%': {left: '-20%', top: '20%'},
+        '65.001%': {left: '-20%', top: '40%'},
+        '85%': {left: '110%', top: '60%'},
+        '85.001%': {left: '0%', top: '-5%'},
+        '100%': {left: '0%', top: '-5%'},
+      }, 'ease-in-out')
+    }}>
+      {/* This animation bobs the birds up and down, and side-to-side. */}
+      <div className='birds' style={Object.assign(styles, {
+        position: 'absolute',
+        // http://easings.net/#easeInOutSine
+        animation: `birdAnim ${20}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
+        animationName: Radium.keyframes({
+          '0%': {top: '10px'},
+          '50%': {top: '-10px'},
+          '100%': {top: '10px'},
+        }, 'ease-in-out')
+      })}>
+        <img className="bird" style={bird1Styles} src='images/seagull.svg'/>
+        {/* This animation spins this bird every few seconds */}
+        <img className="bird" style={Object.assign(bird2Styles, {
+          animation: `birdAnim ${14}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
+          animationName: Radium.keyframes({
+            '0%': {transform: 'rotate(0deg)'},
+            '50%': {transform: 'rotate(0deg)'},
+            '55%': {transform: 'rotate(360deg)'},
+            '60%': {transform: 'rotate(360deg)'},
+            '100%': {transform: 'rotate(360deg)'},
+          }, 'ease-in-out'),
+        })} src='images/seagull.svg'/>
+        <img className="bird" style={bird3Styles} src='images/seagull.svg'/>
+      </div>
     </div>;
   }
 
@@ -102,17 +138,15 @@ export default class Sky extends Component {
             }, 'pulse')
           })}
         </section>
-        <section className="birds">
-          {Sky.createBirdCluster({
-            animation: `bird1 ${cloudSpeed * 0.9}s linear infinite`,
-            animationName: Radium.keyframes({
-              '0%': {left: '15%'},
-              '50%': {left: '110%'},
-              '50.0001%': {left: '-20%'},
-              '100%': {left: '15%'},
-            }, 'pulse')
-          })}
-        </section>
+        {Sky.createBirdCluster({
+          animation: `bird1 ${cloudSpeed * 0.9}s linear infinite`,
+          animationName: Radium.keyframes({
+            '0%': {left: '15%'},
+            '50%': {left: '110%'},
+            '50.0001%': {left: '-20%'},
+            '100%': {left: '15%'},
+          }, 'pulse')
+        })}
         <div className="moon" style={{
           borderRadius: `${moonSize}px`,
           width: `${moonSize}px`,
