@@ -155,13 +155,17 @@ export default class Sky extends Component {
           position: 'absolute',
           bottom: '0',
 
+          boxShadow: 'rgba(255, 255, 255, 0.1) 0px 0px 0px 10px,' +
+            'rgba(255, 255, 255, 0.1) 0px 0px 0px 20px,' +
+            'rgba(255, 255, 255, 0.05) 0px 0px 0px 30px',
+          backgroundColor: '#fbdcc2',
+
           animation: 'bigger 30s ease 0s infinite',
           animationName: Radium.keyframes({
             '0%': {transform:'scale(1)'},
             '50%': {transform:'scale(1.1)'},
             '100%': {transform:'scale(1)'},
           }, 'pulse'),
-          backgroundColor: Constants.color.gray
         }}>moon
         </div>
         <h1 className="title" style={{
