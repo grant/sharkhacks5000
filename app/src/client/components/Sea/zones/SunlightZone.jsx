@@ -22,16 +22,16 @@ export default class SunlightZone extends Component {
             position: 'absolute',
             transform: 'rotate(180deg) scaleY(0.3)',
             transformOrigin: 'top',
-          }} viewBox="0 0 500 150" preserveAspectRatio="xMinYMin meet">
-            <path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z" style="stroke: none  "></path>
+          }} viewBox='0 0 500 150' preserveAspectRatio='xMinYMin meet'>
+            <path d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' />
           </svg>
           <svg style={{
             fill: 'rgba(0,0,0,0.1)',
             position: 'absolute',
             transform: 'rotate(0deg) scaleY(0.1)',
             transformOrigin: 'top',
-          }} viewBox="0 0 500 150" preserveAspectRatio="xMinYMin meet">
-            <path d="M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z" style="stroke: none"></path>
+          }} viewBox='0 0 500 150' preserveAspectRatio='xMinYMin meet'>
+            <path d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' />
           </svg>
         </div>
       </section>
