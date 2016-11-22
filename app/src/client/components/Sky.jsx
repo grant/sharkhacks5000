@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ConfiguredRadium from './ConfiguredRadium';
 import Radium from 'radium';
 import Constants from './../constants';
+import Utils from './../utils';
 
 @ConfiguredRadium
 export default class Sky extends Component {
@@ -31,6 +32,7 @@ export default class Sky extends Component {
   static createBirdCluster(styles = {}) {
     let birdStyles = {
       position: 'absolute',
+      opacity: 0.4,
     };
     let bird1Styles = Object.assign({
       width: '15px',
@@ -99,6 +101,7 @@ export default class Sky extends Component {
   render() {
     const moonSize = 300;
     const cloudSpeed = 100; // seconds
+    const isDayTime = Utils.isDayTime();
     return (
       <div className='Sky' style={{
         height: '600px',
@@ -158,7 +161,7 @@ export default class Sky extends Component {
           boxShadow: 'rgba(255, 255, 255, 0.1) 0px 0px 0px 10px,' +
             'rgba(255, 255, 255, 0.1) 0px 0px 0px 20px,' +
             'rgba(255, 255, 255, 0.05) 0px 0px 0px 30px',
-          backgroundColor: '#fbdcc2',
+          backgroundColor: isDayTime ? '#fbdcc2' : 'rgb(241, 245, 247)',
 
           animation: 'bigger 30s ease 0s infinite',
           animationName: Radium.keyframes({
@@ -166,7 +169,7 @@ export default class Sky extends Component {
             '50%': {transform:'scale(1.1)'},
             '100%': {transform:'scale(1)'},
           }, 'pulse'),
-        }}>moon
+        }}>
         </div>
         <h1 className="title" style={{
           position: 'relative',
