@@ -57,8 +57,18 @@ export default class Page extends Component {
       <StyleRoot>
         <div
           className={'Page'}
-          style={[styles.base]}
+          style={[styles.base, {
+
+          }]}
         >
+          <div style={{
+            position: 'absolute',
+            zIndex: 100,
+            width: '100%',
+            background: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0))',
+            height: '10px',
+          }}>
+          </div>
           <World />
           {Page.getResetStyles()}
         </div>
