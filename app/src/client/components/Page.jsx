@@ -53,6 +53,15 @@ export default class Page extends Component {
   }
 
   render() {
+    const TOP_PAGE_GRADIENT = (
+      <div style={{
+        position: 'absolute',
+        zIndex: 100,
+        width: '100%',
+        background: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0))',
+        height: '10px',
+      }}></div>
+    );
     return (
       <StyleRoot>
         <div
@@ -61,14 +70,8 @@ export default class Page extends Component {
 
           }]}
         >
-          <div style={{
-            position: 'absolute',
-            zIndex: 100,
-            width: '100%',
-            background: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0))',
-            height: '10px',
-          }}>
-          </div>
+          {TOP_PAGE_GRADIENT}
+          
           <World />
           {Page.getResetStyles()}
         </div>

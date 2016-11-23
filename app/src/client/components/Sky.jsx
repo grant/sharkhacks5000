@@ -171,14 +171,6 @@ export default class Sky extends Component {
           }, 'pulse'),
         }}>
         </div>
-        <h1 className="title" style={{
-          position: 'relative',
-          display: 'block',
-          color: '#555',
-          marginTop: '80px',
-          textAlign: 'center',
-          fontSize: '40px',
-        }}>SharkHacks5000</h1>
       </div>
     );
   }

@@ -51,6 +51,41 @@ export default class World extends Component {
           overflow: 'hidden',
         }
       }>
+        <div className='overlay' style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          zIndex: 100,
+        }}>
+          <h1 className="title" style={{
+            position: 'relative',
+            display: 'block',
+            color: '#555',
+            marginTop: '80px',
+            textAlign: 'center',
+            fontSize: '50px',
+          }}>SharkHacks5000</h1>
+          <p style={{
+            width: '400px',
+            color: 'white',
+            background: 'rgba(0,0,0,0.1)',
+            padding: '10px',
+            borderRadius: '3px',
+            lineHeight: 1.2,
+            textShadow: '2px 2px rgba(90,90,90,0.2)',
+            margin: '0 auto',
+          }}>
+            SharkHacks5000 (/ˈshahrk.hæks.5000/) is
+            the most epically incredible super-premier
+            really really big hackathon that has ever
+            happened or will ever happen in the history
+            of the entire known universe, especially on
+            a boat.
+            <br />
+            <br />
+            © {new Date().getFullYear()} Grant Timmerman
+          </p>
+        </div>
         <Sky />
         <Sea />
       </div>
