@@ -47,6 +47,9 @@ export default class Page extends Component {
             borderCollapse: 'collapse',
             borderSpacing: 0,
           },
+          'a:visited': {
+            color: 'inherit',
+          }
         }}
       />
     );
@@ -66,12 +69,9 @@ export default class Page extends Component {
       <StyleRoot>
         <div
           className={'Page'}
-          style={[styles.base, {
-
-          }]}
+          style={[styles.base]}
         >
           {TOP_PAGE_GRADIENT}
-          
           <World />
           {Page.getResetStyles()}
         </div>
