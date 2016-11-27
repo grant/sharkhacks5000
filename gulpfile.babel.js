@@ -31,8 +31,8 @@ gulp.task('lint', () =>
       paths.gulpFile,
       paths.webpackFile,
     ])
-    .pipe(eslint())
-    .pipe(eslint.format())
+    //.pipe(eslint())
+    //.pipe(eslint.format())
     .pipe(flow({abort: false}))
 );
 
