@@ -106,7 +106,6 @@ export default class Sky extends Component {
       <div className='Sky' style={{
         height: '600px',
         position: 'relative',
-        overflow: 'hidden',
         backgroundColor: Constants.color.green
       }}>
         <section className="clouds">
@@ -170,6 +169,28 @@ export default class Sky extends Component {
             '100%': {transform:'scale(1)'},
           }, 'pulse'),
         }}>
+        </div>
+        <div className="moonshadowclip">
+          {/* This moon shadow doesn't scale really well with browser width so we show it lightly. */}
+          <div className="moonshadow" style={{
+            background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 40%, rgba(214, 109, 77, 0) 100%)',
+            borderRadius: '0 0 300px 300px',
+            height: '64px',
+            width: '300px',
+            position: 'absolute',
+            zIndex: '100',
+            bottom: '0',
+            margin: '-15px calc(50% - 150px)',
+
+            /* Copy animation from top */
+            animation: 'bigger 30s ease 0s infinite',
+            animationName: Radium.keyframes({
+              '0%': {transform:'scale(1)'},
+              '50%': {transform:'scale(1.1)'},
+              '100%': {transform:'scale(1)'},
+            }, 'pulse'),
+          }}>
+          </div>
         </div>
       </div>
     );
