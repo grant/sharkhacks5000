@@ -5,8 +5,9 @@ import Boat from './../Boat';
 @Radium
 export default class Surface extends Component {
   render() {
-    let getWaveStyles = (waveNumber) => {
-      let animationDuration = (waveNumber === 1) ? '10s': '3s';
+    const WAVE_SPEED = 3; // sec
+    let getWaveStyles = (waveNumber:Number) => {
+      let animationDuration = (waveNumber === 1) ? `${WAVE_SPEED * 3}s`: `${WAVE_SPEED}s`;
       let opacity = (waveNumber === 1) ? 1 : 0.4;
       let translate = (waveNumber === 1) ? '-20px' : '0';
       return {

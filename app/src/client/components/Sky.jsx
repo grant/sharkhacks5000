@@ -176,11 +176,11 @@ export default class Sky extends Component {
             background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 40%, rgba(214, 109, 77, 0) 100%)',
             borderRadius: '0 0 300px 300px',
             height: '64px',
-            width: '300px',
+            width: `${moonSize}px`,
             position: 'absolute',
             zIndex: '100',
             bottom: '0',
-            margin: '-15px calc(50% - 150px)',
+            margin: `-15px calc(50% - ${moonSize/2}px)`,
 
             /* Copy animation from top */
             animation: 'bigger 30s ease 0s infinite',
