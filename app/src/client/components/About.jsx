@@ -36,7 +36,7 @@ export default class About extends Component {
         <p style={{
             width: '400px',
             color: 'white',
-            background: 'rgba(0,0,0,0.1)',
+            background: 'rgba(0,0,0,0.2)',
             padding: '10px',
             borderRadius: '3px',
             lineHeight: 1.2,
