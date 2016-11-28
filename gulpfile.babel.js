@@ -1,16 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
+import del from 'del';
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
 import flow from 'gulp-flowtype';
 import util from 'gulp-util';
 import mocha from 'gulp-mocha';
-import del from 'del';
 import webpack from 'webpack-stream';
 var w = require('webpack');
-
-import path from 'path';
 
 const paths = {
   allSrcJs: 'app/src/**/*.js?(x)',
@@ -60,13 +58,11 @@ gulp.task('main', ['test'], () =>
       },
       devtool: 'source-map',
       module: {
-        loaders: [
-          {
-            test: /\.jsx?$/,
-            loader: 'babel-loader',
-            exclude: [/node_modules/],
-          },
-        ],
+        loaders: [{
+          test: /\.jsx?$/,
+          loader: 'babel-loader',
+          exclude: [/node_modules/],
+        }],
       },
       resolve: {
         extensions: ['', '.js', '.jsx'],

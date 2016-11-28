@@ -6,5 +6,5 @@ export default {
   isDayTime() {
     const time = (new Date()).getHours();
     return (time > 7 && time < 19);
-  }
+  },
 };

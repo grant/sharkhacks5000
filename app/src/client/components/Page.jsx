@@ -2,10 +2,11 @@ import Constants from './../constants';
 import React, { Component } from 'react';
 import Radium, {StyleRoot} from 'radium';
 import World from './World';
+import Utils from '../utils';
 
 const styles = {
   base: {
-    color: '#aaa',
+    color: '#ff0000',
     fontFamily: Constants.font.family,
   },
 };
@@ -55,6 +56,38 @@ export default class Page extends Component {
     );
   }
 
+  static getHUD() {
+    let coinCount = 999999;
+
+    const HUD_PADDING = '20px';
+    return <section className='HUD' style={{
+      position: 'fixed',
+      transform: 'translateZ(0)', // for performance
+      top: HUD_PADDING,
+      right: HUD_PADDING,
+    }}>
+      <div className='coin-count' style={{
+        borderRadius: '5px',
+        padding: '3px 5px',
+        backgroundColor: 'rgba(100, 100, 100, 0.2)',
+      }}>
+        <div style={{
+          width: '10px',
+          height: '10px',
+          borderRadius: '10px',
+          display: 'inline-block',
+          backgroundColor: 'rgb(250, 200, 0)',
+        }}></div>
+        <span className='coin-amount' style={{
+          paddingLeft: '5px',
+          fontWeight: 700,
+          color: 'white',
+        }}>{coinCount.toLocaleString()}</span>
+      </div>
+    </section>;
+  }
+
+
   render() {
     const TOP_PAGE_GRADIENT = (
       <div style={{
@@ -73,6 +106,7 @@ export default class Page extends Component {
         >
           {TOP_PAGE_GRADIENT}
           <World />
+          {Page.getHUD()}
           {Page.getResetStyles()}
         </div>
       </StyleRoot>
