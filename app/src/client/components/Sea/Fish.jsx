@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-
-const Type = {
+export const Type = {
   Small1: 'Small1',
   Small2: 'Small2',
   Small3: 'Small3',
@@ -20,8 +19,7 @@ const Type = {
 @Radium
 export default class Fish extends Component {
   render() {
-    let fishType = Type.Large3;
-    const fishImg = `images/fish${fishType}.png`;
+    const fishImg = `images/fish${this.props.type}.png`;
     return (
       <li className='Fish' style={{
           position: 'absolute',
@@ -33,3 +31,11 @@ export default class Fish extends Component {
     );
   }
 }
+
+Fish.propTypes = {
+  type: React.PropTypes.string.isRequired,
+};
+
+Fish.defaultProps = {
+  type: '???',
+};

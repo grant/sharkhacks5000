@@ -3,7 +3,7 @@ import Radium from 'radium';
 import Boat from './Boat';
 import Surface from './zones/Surface';
 import Abyss from './zones/Abyss';
-import Fish from './Fish';
+import Fish, {Type} from './Fish';
 import Trenches from './zones/Trenches';
 import MidnightZone from './zones/MidnightZone';
 import SunlightZone from './zones/SunlightZone';
@@ -42,14 +42,18 @@ export default class Sea extends Component {
   }
 
   getAllFish() {
-    let allFish = [1, 2, 3];
+    let allFish = [{
+      type: Type.Small1,
+    }, {
+      type: Type.Medium2,
+    }];
     return <ul className='all-fish' style={{
       position: 'absolute',
       width: '100%',
       zIndex: 100,
     }}>
       {allFish.map(fish => {
-        return <Fish />
+        return <Fish type={fish.type} />
       })}
     </ul>;
   }

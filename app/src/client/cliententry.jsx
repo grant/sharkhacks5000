@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Page from './components/Page';
 
-const EASTER = true; // console easter egg
+const EASTER = false; // console easter egg
 
 window.onload = () => {
   ReactDOM.render(<Page />, document.querySelector('.app'));

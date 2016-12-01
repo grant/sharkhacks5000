@@ -87,7 +87,6 @@ export default class Page extends Component {
     </section>;
   }
 
-
   render() {
     const TOP_PAGE_GRADIENT = (
       <div style={{
