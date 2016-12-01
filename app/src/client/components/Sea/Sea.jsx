@@ -3,6 +3,7 @@ import Radium from 'radium';
 import Boat from './Boat';
 import Surface from './zones/Surface';
 import Abyss from './zones/Abyss';
+import Fish from './Fish';
 import Trenches from './zones/Trenches';
 import MidnightZone from './zones/MidnightZone';
 import SunlightZone from './zones/SunlightZone';
@@ -27,13 +28,29 @@ export default class Sea extends Component {
         backgroundColor: 'red',
         position: 'relative',
       }}>
-        <Surface />
-        <SunlightZone />
-        <TwilightZone />
-        <MidnightZone />
-        <Abyss />
-        <Trenches />
+        {this.getAllFish()}
+        <div className='backgrounds'>
+          <Surface />
+          <SunlightZone />
+          <TwilightZone />
+          <MidnightZone />
+          <Abyss />
+          <Trenches />
+        </div>
       </section>
     );
+  }
+
+  getAllFish() {
+    let allFish = [1, 2, 3];
+    return <ul className='all-fish' style={{
+      position: 'absolute',
+      width: '100%',
+      zIndex: 100,
+    }}>
+      {allFish.map(fish => {
+        return <Fish />
+      })}
+    </ul>;
   }
 }
