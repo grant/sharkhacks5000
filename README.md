@@ -7,6 +7,16 @@ yarn
 npm start
 ```
 
+## Develop
+Tab 1 (javascript):
+```sh
+npm watch
+```
+Tab 2 (sever):
+```sh
+gulp
+```
+
 ## Deploy
 ```sh
 git push heroku master
