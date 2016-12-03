@@ -23,6 +23,7 @@ export default class About extends Component {
       fontStyle: 'italic',
       color: 'lightgray',
     };
+
     return (
       <section className='about' style={{
         opacity: 1,
