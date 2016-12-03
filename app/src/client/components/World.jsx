@@ -45,6 +45,10 @@ import Sea from './Sea/Sea';
 @Radium
 export default class World extends Component {
   render() {
+    const VIGNETTE_WIDTH = '600px';
+    const VIGNETTE_RADIUS_MAX = 500; // px
+    const VIGNETTE_RADIUS_MIN = -400; // px
+    const VIGNETTE_DURATION = '1s';
     return (
       <div
         className='World'
@@ -53,10 +57,16 @@ export default class World extends Component {
         }
       }>
         <div className='overlay' style={{
-          position: 'absolute',
+          position: 'fixed',
           width: '100%',
           height: '100%',
-          zIndex: 100,
+          zIndex: 1000,
+
+          animation: `vignette-out ${VIGNETTE_DURATION} ease-in-out 1`,
+          animationName: Radium.keyframes({
+            '0%': {boxShadow: `0 0 ${VIGNETTE_WIDTH} ${VIGNETTE_RADIUS_MAX}px rgba(60,60,60,0.7) inset`,},
+            '100%': {boxShadow: `0 0 ${VIGNETTE_WIDTH} ${VIGNETTE_RADIUS_MIN}px rgba(0,60,60,60.3) inset`,},
+          }, 'ease-in-out'),
         }}>
           <About />
         </div>

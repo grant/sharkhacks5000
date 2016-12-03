@@ -24,7 +24,15 @@ export default class About extends Component {
       color: 'lightgray',
     };
     return (
-      <section className='about'>
+      <section className='about' style={{
+        opacity: 1,
+        animation: 'fade 2s ease 0s 1',
+        animationName: Radium.keyframes({
+          '0%': {opacity: 0},
+          '30%': {opacity: 0},
+          '100%': {opacity: 1},
+        }, 'ease-in-out'),
+      }}>
         <h1 className="title" style={{
             position: 'relative',
             display: 'block',
