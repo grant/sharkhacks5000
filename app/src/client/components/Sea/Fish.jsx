@@ -20,13 +20,20 @@ export const Type = {
 export default class Fish extends Component {
   render() {
     const fishImg = `images/fish${this.props.type}.png`;
+    let direction = 1;
+    let left = '10%';
+    let top = '20%';
     return (
       <li className='Fish' style={{
-          position: 'absolute',
-        }}>
+        position: 'absolute',
+        left,
+        top,
+        transition: 'ease-in-out 200ms',
+        transform: `scaleX(${direction})`,
+      }}>
         <img ref='img' style={{
-            width: '100%',
-          }} src={fishImg}/>
+          width: '100%',
+        }} src={fishImg}/>
       </li>
     );
   }

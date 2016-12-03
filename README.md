@@ -12,7 +12,7 @@ Tab 1 (javascript):
 ```sh
 npm watch
 ```
-Tab 2 (sever):
+Tab 2 (server):
 ```sh
 gulp
 ```
