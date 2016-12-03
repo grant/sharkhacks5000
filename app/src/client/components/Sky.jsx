@@ -4,6 +4,9 @@ import Radium from 'radium';
 import Constants from './../constants';
 import Utils from './../utils';
 
+/**
+ * The sky for the world.
+ */
 @ConfiguredRadium
 export default class Sky extends Component {
   /**

@@ -12,6 +12,9 @@ const styles = {
   },
 };
 
+/**
+ * The root page for the site.
+ */
 @Radium
 export default class Page extends Component {
   /**

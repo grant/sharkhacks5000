@@ -2,6 +2,10 @@ import About from './About';
 import React, { Component } from 'react';
 import Radium from 'radium';
 
+/**
+ * Content that is _fixed_ to the viewport of the screen.
+ * Note that the root node is `position: fixed`. So no scrolling.
+ */
 @Radium
 export default class HUD extends Component {
   render() {
