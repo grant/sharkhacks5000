@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
+import Utils from '../utils';
 
 /**
  * Displays the summary of the score of a part of the game.
@@ -34,37 +35,50 @@ export default class ScoreSummary extends Component {
     }, {
       footer: true,
       title: 'Total',
-      value: '123,123',
+      value: Utils.formatNumberWithCommas(123123),
     }];
 
     return (
       <article className='ScoreSummary' style={{
-        color: 'black',
         width: '400px',
       }}>
-        <h1>Your Score</h1>
-        <ul className="score-items">{scoreItems.map(scoreItem => {
+        <h1 style={{
+          color: 'black',
+          textSize: '30px',
+          textAlign: 'center',
+          fontWeight: 700,
+          padding: '10px',
+        }}>Your Score</h1>
+        <ul className="score-items">{scoreItems.map((scoreItem, i) => {
           let iconSrc = scoreItem.icon ? `images/${scoreItem.icon}.svg` : null;
+          let rowColor = (i % 2 === 0) ? 'rgba(0,0,0,0.05)' : 'transparent';
           return <li
-            key={scoreItem.icon}
+            key={Math.random() + ''}
             style={{
-              backgroundColor: scoreItem.footer ? 'rgba(#333, 0.2)' : null,
+              backgroundColor: scoreItem.footer ? 'rgba(0,0,0,0.1)' : rowColor,
+              padding: scoreItem.footer ? '5px 7px' : '2px 7px',
+              color: scoreItem.footer ? 'white' : 'black',
             }
           }>
             <span className="title" style={{
-              textAlign: 'left',
             }}>
               {iconSrc ? <img className="icon" src={iconSrc} style={{
                 paddingRight: '10px',
+                opacity: 0.7,
                 width: '15px',
               }} /> : ''}
               {scoreItem.title}
             </span>
             <span className="value" style={{
-              textAlign: 'right',
+              float: 'right'
             }}>{scoreItem.value}</span>
           </li>;
         })}</ul>
+        <button onClick={function() {
+          console.log('shared');
+        }}>
+          <img src='images/share.svg' />Share
+        </button>
       </article>
     );
   }

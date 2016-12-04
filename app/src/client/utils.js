@@ -7,4 +7,8 @@ export default {
     const time = (new Date()).getHours();
     return (time > 7 && time < 19);
   },
+
+  formatNumberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 };
