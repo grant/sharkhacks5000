@@ -1,13 +1,14 @@
 # sharkhacks5000
 The home page for SharkHacks5000 https://sharkhacks5000.com 
 
-## Start
+## Development
+### Start
 ```sh
 yarn
 npm start
 ```
 
-## Develop
+### Develop
 Tab 1 (javascript):
 ```sh
 npm watch
@@ -17,11 +18,14 @@ Tab 2 (server):
 gulp
 ```
 
-## Deploy
+### Deploy
 ```sh
 git push heroku master
 heroku open
 ```
+
+## Other
+Icons: http://www.flaticon.com/
 
 ## Inspiration
 

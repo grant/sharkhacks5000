@@ -21,7 +21,7 @@ export default class ScoreSummary extends Component {
       value: '100m',
     }, {
       title: 'Fish score',
-      icon: 'fish',
+      icon: 'fishBones',
       value: '666',
     }, {
       title: 'Coins collected',
@@ -38,18 +38,25 @@ export default class ScoreSummary extends Component {
     }];
 
     return (
-      <article className='ScoreSummary'>
+      <article className='ScoreSummary' style={{
+        color: 'black',
+        width: '400px',
+      }}>
         <h1>Your Score</h1>
         <ul className="score-items">{scoreItems.map(scoreItem => {
-          let iconSrc = scoreItem.icon ? `img/${scoreItem.icon}.png` : null;
-          return <li style={{
-            backgroundColor: scoreItem.footer ? 'rgba(#333, 0.2)' : null,
-          }}>
+          let iconSrc = scoreItem.icon ? `images/${scoreItem.icon}.svg` : null;
+          return <li
+            key={scoreItem.icon}
+            style={{
+              backgroundColor: scoreItem.footer ? 'rgba(#333, 0.2)' : null,
+            }
+          }>
             <span className="title" style={{
               textAlign: 'left',
             }}>
               {iconSrc ? <img className="icon" src={iconSrc} style={{
                 paddingRight: '10px',
+                width: '15px',
               }} /> : ''}
               {scoreItem.title}
             </span>

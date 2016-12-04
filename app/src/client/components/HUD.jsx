@@ -1,6 +1,7 @@
 import About from './About';
 import React, { Component } from 'react';
 import Radium from 'radium';
+import ScoreSummary from './ScoreSummary';
 
 /**
  * Content that is _fixed_ to the viewport of the screen.
@@ -37,6 +38,7 @@ export default class HUD extends Component {
       }, 'ease-in-out'),
     }}>
       <About />
+      <ScoreSummary />
       <div className='coin-count' style={{
         borderRadius: '5px',
         position: 'absolute',
