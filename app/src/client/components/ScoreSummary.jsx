@@ -41,10 +41,11 @@ export default class ScoreSummary extends Component {
     return (
       <article className='ScoreSummary' style={{
         width: '400px',
+        margin: '0 auto',
       }}>
         <h1 style={{
           color: 'black',
-          textSize: '30px',
+          textSize: '20px',
           textAlign: 'center',
           fontWeight: 700,
           padding: '10px',
@@ -74,11 +75,19 @@ export default class ScoreSummary extends Component {
             }}>{scoreItem.value}</span>
           </li>;
         })}</ul>
-        <button onClick={function() {
+        <div style={{
+          display: 'flex',
+          color: 'white',
+          justifyContent: 'center',
+          alignItems: 'center',
+          margin: '10px auto',
+        }} onClick={function() {
           console.log('shared');
         }}>
-          <img src='images/share.svg' />Share
-        </button>
+          <img src='images/share.svg' style={{
+            width: '30px'
+          }} />Share
+        </div>
       </article>
     );
   }

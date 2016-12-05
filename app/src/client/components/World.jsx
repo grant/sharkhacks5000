@@ -44,13 +44,19 @@ import Sea from './Sea/Sea';
 @Radium
 export default class World extends Component {
   render() {
+    let isBlurred = true;
+    let styles = {
+      overflow: 'hidden',
+      transition: '1s filter linear',
+    };
+    if (isBlurred) {
+      styles.filter = 'blur(5px)';
+    }
     return (
       <div
         className='World'
-        style={{
-          overflow: 'hidden',
-        }
-      }>
+        style={styles}
+      >
         <Sky />
         <Sea />
       </div>

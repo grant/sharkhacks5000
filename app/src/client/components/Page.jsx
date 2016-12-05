@@ -9,6 +9,7 @@ const styles = {
   base: {
     color: '#ff0000',
     fontFamily: Constants.font.family,
+    background: 'white',
   },
 };
 
