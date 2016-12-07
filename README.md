@@ -9,11 +9,7 @@ npm start
 ```
 
 ### Develop
-Tab 1 (javascript):
-```sh
-gulp watch
-```
-Tab 2 (server):
+Watch for javascript
 ```sh
 gulp
 ```
