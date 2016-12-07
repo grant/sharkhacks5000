@@ -11,7 +11,7 @@ npm start
 ### Develop
 Tab 1 (javascript):
 ```sh
-npm watch
+gulp watch
 ```
 Tab 2 (server):
 ```sh
