@@ -37,8 +37,8 @@ export default class HUD extends Component {
         '100%': {boxShadow: `0 0 ${VIGNETTE_WIDTH} ${VIGNETTE_RADIUS_MIN}px rgba(30,30,30,0) inset`,},
       }, 'ease-in-out'),
     }}>
-      <About />
-      <ScoreSummary />
+      {/*<About />*/}
+      {/*<ScoreSummary />*/}
       <div className='coin-count' style={{
         borderRadius: '5px',
         position: 'absolute',

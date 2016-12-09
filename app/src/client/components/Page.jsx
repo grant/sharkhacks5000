@@ -1,9 +1,14 @@
 import Constants from './../constants';
 import HUD from './HUD';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Radium, {StyleRoot} from 'radium';
 import World from './World';
-import Utils from '../utils';
+import raf from 'raf';
+
+let GameLoop = {
+  gameTime: null,
+  delta: 0,
+};
 
 const styles = {
   base: {
@@ -59,6 +64,18 @@ export default class Page extends Component {
         }}
       />
     );
+  }
+
+  constructor() {
+    super();
+    // Sets up the animation loop
+    GameLoop.gameTime = +new Date();
+    raf(function tick() {
+      let newTime = +new Date();
+      GameLoop.delta = newTime - GameLoop.gameTime;
+      GameLoop.gameTime = newTime;
+      raf(tick);
+    });
   }
 
   render() {

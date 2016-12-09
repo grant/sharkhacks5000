@@ -44,7 +44,7 @@ import Sea from './Sea/Sea';
 @Radium
 export default class World extends Component {
   render() {
-    let isBlurred = true;
+    let isBlurred = false;
     let styles = {
       overflow: 'hidden',
       transition: '1s filter linear',

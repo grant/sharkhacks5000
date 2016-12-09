@@ -50,6 +50,7 @@ export default class Sea extends Component {
     return <ul className='all-fish' style={{
       position: 'absolute',
       width: '100%',
+      height: '100px',
       zIndex: 100,
     }}>
       {allFish.map(fish => {

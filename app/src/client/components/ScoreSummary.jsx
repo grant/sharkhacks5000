@@ -41,7 +41,7 @@ export default class ScoreSummary extends Component {
     return (
       <article className='ScoreSummary' style={{
         width: '400px',
-        margin: '0 auto',
+        margin: '20px auto',
       }}>
         <h1 style={{
           color: 'black',

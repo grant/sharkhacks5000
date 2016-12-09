@@ -22,7 +22,7 @@ export default class Fish extends Component {
     const fishImg = `images/fish${this.props.type}.png`;
     let direction = 1;
     let left = '10%';
-    let top = '20%';
+    let top = '120%';
     return (
       <li className='Fish' style={{
         position: 'absolute',
