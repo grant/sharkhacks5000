@@ -111,16 +111,17 @@ export default class Sky extends Component {
       const NUM_STARS = 20;
       const STAR_SIZE = 5;
       const STAR_SIZE_STRING = `${STAR_SIZE}px`;
-      const STAR_BOTTOM_PADDING = 10; // %
+      const STAR_BOTTOM_PADDING = 0.1; // 0-1
       let stars = [];
       for (let i = 0; i < NUM_STARS; ++i) {
+        const starTop = Math.random() * (1 - STAR_BOTTOM_PADDING);
         stars[i] = <div className='star' style={{
           position: 'absolute',
-          top: `${Math.floor(Math.random() * (100 - STAR_BOTTOM_PADDING))}%`,
+          top: `${starTop * 100}%`,
           left: `${Math.floor(Math.random() * 100)}%`,
           width: STAR_SIZE_STRING,
           height: STAR_SIZE_STRING,
-          opacity: 0.1 + (Math.random() * 0.2),
+          opacity: Math.random() * 0.4 * (1 - starTop * starTop),
           background: 'white',
           transform: 'rotate(45deg)'
         }}>
