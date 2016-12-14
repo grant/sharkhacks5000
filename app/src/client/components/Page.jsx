@@ -98,12 +98,14 @@ export default class Page extends Component {
           style={[styles.base]}
         >
           <section className='splash' style={{
-            display: 'block',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             height: '100%',
             position: 'absolute',
             width: '100%',
             zIndex: 10000,
-            background: 'black'
+            background: 'black',
           }}>
             [SPLASH IMAGE]
           </section>

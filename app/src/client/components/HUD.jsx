@@ -13,8 +13,6 @@ export default class HUD extends Component {
     let coinCount = 999999;
 
     const HUD_PADDING = '20px';
-
-
     const VIGNETTE_WIDTH = '600px';
     const VIGNETTE_RADIUS_MAX = 500; // px
     const VIGNETTE_RADIUS_MIN = -400; // px

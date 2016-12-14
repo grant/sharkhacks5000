@@ -108,7 +108,6 @@ export default class Sky extends Component {
     const cloudSpeed = 100; // seconds
     const isDayTime = Utils.isDayTime();
 
-
     let getStarsSection = () => {
       const NUM_STARS = 20;
       const STAR_SIZE = 5;
