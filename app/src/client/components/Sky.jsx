@@ -117,7 +117,7 @@ export default class Sky extends Component {
       let stars = [];
       for (let i = 0; i < NUM_STARS; ++i) {
         const starTop = Math.random() * (1 - STAR_BOTTOM_PADDING);
-        stars[i] = <div className='star' style={{
+        stars[i] = <div className='star' key={i} style={{
           position: 'absolute',
           top: `${starTop * 100}%`,
           left: `${Math.floor(Math.random() * 100)}%`,

@@ -60,6 +60,9 @@ export default class Page extends Component {
           },
           'a:visited': {
             color: 'inherit',
+          },
+          html: {
+            overflow: 'hidden',
           }
         }}
       />
@@ -94,6 +97,16 @@ export default class Page extends Component {
           className={'Page'}
           style={[styles.base]}
         >
+          <section className='splash' style={{
+            display: 'block',
+            height: '100%',
+            position: 'absolute',
+            width: '100%',
+            zIndex: 10000,
+            background: 'black'
+          }}>
+            [SPLASH IMAGE]
+          </section>
           {TOP_PAGE_GRADIENT}
           <World />
           <HUD />
