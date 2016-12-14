@@ -109,7 +109,7 @@ export default class Sky extends Component {
       <div className='Sky' style={{
         height: '600px',
         position: 'relative',
-        backgroundColor: Constants.color.green
+        backgroundColor: isDayTime ? Constants.color.green : Constants.color.black
       }}>
         <section className="clouds">
           {Sky.createCloud('cloud1', {
