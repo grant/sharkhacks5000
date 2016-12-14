@@ -55,46 +55,48 @@ export default class Sky extends Component {
 
     // Animate all birds
     // This animation subtly rotates the birds as they travel left and right
-    return <div className='birdPath' style={{
-      animation: `birdAnim ${60}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
-      position: 'absolute',
-      animationName: Radium.keyframes({
-        '0%': {left: '0%', top: '-5%'},
-        '25%': {left: '20%', top: '30%'},
-        '40%': {left: '80%', top: '70%'},
-        '65%': {left: '-20%', top: '20%'},
-        '65.001%': {left: '-20%', top: '40%'},
-        '85%': {left: '110%', top: '60%'},
-        '85.001%': {left: '0%', top: '-5%'},
-        '100%': {left: '0%', top: '-5%'},
-      }, 'pulse')
-    }}>
-      {/* This animation bobs the birds up and down, and side-to-side. */}
-      <div className='birds' style={Object.assign(styles, {
+    return (
+      <div className='birdPath' style={{
+        animation: `birdAnim ${60}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
         position: 'absolute',
-        // http://easings.net/#easeInOutSine
-        animation: `birdAnim ${20}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
         animationName: Radium.keyframes({
-          '0%': {top: '10px'},
-          '50%': {top: '-10px'},
-          '100%': {top: '10px'},
-        }, 'ease-in-out')
-      })}>
-        <img className="bird" style={bird1Styles} src='images/seagull.svg'/>
-        {/* This animation spins this bird every few seconds */}
-        <img className="bird" style={Object.assign(bird2Styles, {
-          animation: `birdAnim ${14}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
+          '0%': {left: '0%', top: '-5%'},
+          '25%': {left: '20%', top: '30%'},
+          '40%': {left: '80%', top: '70%'},
+          '65%': {left: '-20%', top: '20%'},
+          '65.001%': {left: '-20%', top: '40%'},
+          '85%': {left: '110%', top: '60%'},
+          '85.001%': {left: '0%', top: '-5%'},
+          '100%': {left: '0%', top: '-5%'},
+        }, 'pulse')
+      }}>
+        {/* This animation bobs the birds up and down, and side-to-side. */}
+        <div className='birds' style={Object.assign(styles, {
+          position: 'absolute',
+          // http://easings.net/#easeInOutSine
+          animation: `birdAnim ${20}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
           animationName: Radium.keyframes({
-            '0%': {transform: 'rotate(0deg)'},
-            '50%': {transform: 'rotate(0deg)'},
-            '55%': {transform: 'rotate(360deg)'},
-            '60%': {transform: 'rotate(360deg)'},
-            '100%': {transform: 'rotate(360deg)'},
-          }, 'ease-in-out'),
-        })} src='images/seagull.svg'/>
-        <img className="bird" style={bird3Styles} src='images/seagull.svg'/>
+            '0%': {top: '10px'},
+            '50%': {top: '-10px'},
+            '100%': {top: '10px'},
+          }, 'ease-in-out')
+        })}>
+          <img className="bird" style={bird1Styles} src='images/seagull.svg'/>
+          {/* This animation spins this bird every few seconds */}
+          <img className="bird" style={Object.assign(bird2Styles, {
+            animation: `birdAnim ${14}s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite`,
+            animationName: Radium.keyframes({
+              '0%': {transform: 'rotate(0deg)'},
+              '50%': {transform: 'rotate(0deg)'},
+              '55%': {transform: 'rotate(360deg)'},
+              '60%': {transform: 'rotate(360deg)'},
+              '100%': {transform: 'rotate(360deg)'},
+            }, 'ease-in-out'),
+          })} src='images/seagull.svg'/>
+          <img className="bird" style={bird3Styles} src='images/seagull.svg'/>
+        </div>
       </div>
-    </div>;
+    );
   }
 
   /**
