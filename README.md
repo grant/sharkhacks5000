@@ -20,6 +20,11 @@ git push heroku master
 heroku open
 ```
 
+## Open
+```sh
+npm run open
+```
+
 ## Other
 Icons: http://www.flaticon.com/
 - share: http://www.flaticon.com/free-icon/share-arrow_70440#term=up arrow share&page=1&position=1

@@ -7,7 +7,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "view": "open http://localhost:5000/"
   },
   "eslintConfig": {
     "extends": [
