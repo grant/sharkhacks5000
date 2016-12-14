@@ -28,7 +28,7 @@ export default class Sea extends Component {
         backgroundColor: 'red',
         position: 'relative',
       }}>
-        {this.getAllFish()}
+        {Sea.getAllFish()}
         <div className='backgrounds'>
           <Surface />
           <SunlightZone />
@@ -41,7 +41,10 @@ export default class Sea extends Component {
     );
   }
 
-  getAllFish() {
+  /**
+   * Gets all the fish in the sea.
+   */
+  static getAllFish() {
     let allFish = [{
       type: Type.Small1,
     }, {

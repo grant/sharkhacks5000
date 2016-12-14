@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import Radium, {StyleRoot} from 'radium';
 import World from './World';
 import raf from 'raf';
-import Splash from './Splash';
 
 let GameLoop = {
   gameTime: null,
@@ -98,7 +97,6 @@ export default class Page extends Component {
           className={'Page'}
           style={[styles.base]}
         >
-          <Splash />
           {TOP_PAGE_GRADIENT}
           <World />
           <HUD />
