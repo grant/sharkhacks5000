@@ -29,9 +29,6 @@ export default class Surface extends Component {
       };
     };
 
-    /*Disable the boat for now, unfinished.*/
-    /*<Boat />*/
-
     return (
       <section className='Surface' style={{
         position: 'relative'

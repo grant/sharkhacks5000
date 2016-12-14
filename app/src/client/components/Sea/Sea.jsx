@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import Boat from './Boat';
 import Surface from './zones/Surface';
 import Abyss from './zones/Abyss';
 import Fish, {Type} from './Fish';
