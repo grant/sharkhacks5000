@@ -105,12 +105,39 @@ export default class Sky extends Component {
     const moonSize = 300;
     const cloudSpeed = 100; // seconds
     const isDayTime = Utils.isDayTime();
+
+
+    let getStarsSection = () => {
+      const NUM_STARS = 20;
+      const STAR_SIZE = 5;
+      const STAR_SIZE_STRING = `${STAR_SIZE}px`;
+      const STAR_BOTTOM_PADDING = 10; // %
+      let stars = [];
+      for (let i = 0; i < NUM_STARS; ++i) {
+        stars[i] = <div className='star' style={{
+          position: 'absolute',
+          top: `${Math.floor(Math.random() * (100 - STAR_BOTTOM_PADDING))}%`,
+          left: `${Math.floor(Math.random() * 100)}%`,
+          width: STAR_SIZE_STRING,
+          height: STAR_SIZE_STRING,
+          opacity: 0.1 + (Math.random() * 0.2),
+          background: 'white',
+          transform: 'rotate(45deg)'
+        }}>
+        </div>;
+      }
+      return <section className='stars'>
+        {stars}
+      </section>;
+    }
+
     return (
       <div className='Sky' style={{
         height: '600px',
         position: 'relative',
         backgroundColor: isDayTime ? Constants.color.green : Constants.color.black
       }}>
+        {getStarsSection()}
         <section className="clouds">
           {Sky.createCloud('cloud1', {
             top: '25%',
