@@ -15,7 +15,9 @@ gulp
 ```
 
 ### Deploy
+Using the [heroku toolbelt](https://devcenter.heroku.com/articles/heroku-cli).
 ```sh
+# heroku git:remote -a <app-name>
 git push heroku master
 heroku open
 ```
