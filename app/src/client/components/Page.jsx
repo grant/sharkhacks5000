@@ -4,11 +4,7 @@ import React, {Component} from 'react';
 import Radium, {StyleRoot} from 'radium';
 import World from './World';
 import raf from 'raf';
-
-let GameLoop = {
-  gameTime: null,
-  delta: 0,
-};
+import GameLoop from '../gameloop';
 
 const styles = {
   base: {
@@ -77,6 +73,7 @@ export default class Page extends Component {
       let newTime = +new Date();
       GameLoop.delta = newTime - GameLoop.gameTime;
       GameLoop.gameTime = newTime;
+      GameLoop.tick();
       raf(tick);
     });
   }
@@ -98,7 +95,7 @@ export default class Page extends Component {
           style={[styles.base]}
         >
           {TOP_PAGE_GRADIENT}
-          <World />
+          <World/>
           <HUD />
           {Page.getResetStyles()}
         </div>

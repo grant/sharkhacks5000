@@ -52,6 +52,7 @@ export default class World extends Component {
     if (isBlurred) {
       styles.filter = 'blur(5px)';
     }
+
     return (
       <div
         className='World'
