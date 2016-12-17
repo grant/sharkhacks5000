@@ -1,10 +1,10 @@
 import 'babel-polyfill';
-import {DEBUG_MODE} from './constants';
+import {DEBUG_MODE} from './utils/constants';
 // import Easter from './easter';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Page from './components/Page';
+import Page, {Type} from './components/Page';
 
 window.onload = () => {
-  ReactDOM.render(<Page />, document.querySelector('.app'));
+  ReactDOM.render(<Page type={Type.DOCS} />, document.querySelector('.app'));
 };

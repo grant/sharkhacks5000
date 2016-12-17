@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ConfiguredRadium from './ConfiguredRadium';
 import Radium from 'radium';
-import Constants from './../constants';
-import Utils from './../utils';
+import Constants from '../utils/constants';
+import Utils from '../utils/utils';
 
 /**
  * The sky for the world.

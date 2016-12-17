@@ -1,12 +1,12 @@
 import 'babel-polyfill';
-import {DEBUG_MODE} from './constants';
-import Easter from './easter';
+import {DEBUG_MODE} from './utils/constants';
+import Easter from './utils/easter';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Page from './components/Page';
+import Page, {Type} from './components/Page';
 
 window.onload = () => {
-  ReactDOM.render(<Page />, document.querySelector('.app'));
+  ReactDOM.render(<Page type={Type.GAME}/>, document.querySelector('.app'));
   if (DEBUG_MODE) {
     Easter.displayConsoleMessage();
   }

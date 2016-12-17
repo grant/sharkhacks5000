@@ -1,10 +1,10 @@
-import Constants from './../constants';
+import Constants from '../utils/constants';
 import HUD from './HUD';
 import React, {Component} from 'react';
 import Radium, {StyleRoot} from 'radium';
 import World from './World';
 import raf from 'raf';
-import GameLoop from '../gameloop';
+import GameLoop from '../utils/gameloop';
 
 const styles = {
   base: {
@@ -12,6 +12,15 @@ const styles = {
     fontFamily: Constants.font.family,
     background: 'white',
   },
+};
+
+/**
+ * The page type.
+ * @type {{DOCS: Symbol, GAME: Symbol}}
+ */
+export const Type = {
+  DOCS: Symbol('docs'),
+  GAME: Symbol('game'),
 };
 
 /**
@@ -88,18 +97,36 @@ export default class Page extends Component {
         height: '10px',
       }}></div>
     );
+
+    let pageBody = null;
+    switch (this.props.type) {
+      case Type.DOCS:
+        pageBody = [
+          <div>page body for docs</div>
+        ];
+        break;
+      case Type.GAME:
+        pageBody = [
+          TOP_PAGE_GRADIENT,
+          <World />,
+          <HUD />,
+        ];
+        break;
+    }
     return (
       <StyleRoot>
         <div
           className={'Page'}
           style={[styles.base]}
         >
-          {TOP_PAGE_GRADIENT}
-          <World/>
-          <HUD />
+          {pageBody}
           {Page.getResetStyles()}
         </div>
       </StyleRoot>
     );
   }
 }
+
+Page.propTypes = {
+  type: React.PropTypes.any // Type
+};

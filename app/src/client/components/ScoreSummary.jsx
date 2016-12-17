@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import Utils from '../utils';
+import Utils from '../utils/utils';
 
 /**
  * Displays the summary of the score of a part of the game.

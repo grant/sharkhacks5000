@@ -10,12 +10,17 @@ import mocha from 'gulp-mocha';
 import webpack from 'webpack-stream';
 var w = require('webpack');
 
+const fileNames = {
+  indexBundle: 'client-bundle.js'
+};
+
 const paths = {
   allSrcJs: 'app/src/**/*.js?(x)',
   serverSrcJs: 'app/src/server/**/*.js?(x)',
   sharedSrcJs: 'app/src/shared/**/*.js?(x)',
   allLibTests: 'lib/test/**/*.js',
   clientEntryPoint: 'app/src/client/cliententry.jsx',
+  docsEntryPoint: 'app/src/client/docs.jsx',
 
   clientBundle: 'dist/client-bundle.js?(.map)',
   docsBundle: 'dist/docs.js?(.map)',
@@ -74,7 +79,7 @@ gulp.task('main', ['test'], () => {
     }))
     .pipe(gulp.dest(paths.distDir))
     .on('error', util.log);
-  gulp.src('app/src/client/docs.jsx')
+  gulp.src(paths.docsEntryPoint)
     .pipe(webpack({
       output: {
         filename: 'docs.js',
