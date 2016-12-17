@@ -19,6 +19,7 @@ const paths = {
   serverSrcJs: 'app/src/server/**/*.js?(x)',
   sharedSrcJs: 'app/src/shared/**/*.js?(x)',
   allLibTests: 'lib/test/**/*.js',
+
   clientEntryPoint: 'app/src/client/cliententry.jsx',
   docsEntryPoint: 'app/src/client/docs.jsx',
 
@@ -63,7 +64,7 @@ gulp.task('main', ['test'], () => {
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack({
       output: {
-        filename: 'client-bundle.js',
+        filename: fileNames.indexBundle,
       },
       devtool: 'source-map',
       module: {
@@ -104,7 +105,7 @@ gulp.task('prod', ['clean'], () => {
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack({
       output: {
-        filename: 'client-bundle.js',
+        filename: fileNames.indexBundle,
       },
       module: {
         loaders: [

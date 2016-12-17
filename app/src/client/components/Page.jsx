@@ -1,4 +1,5 @@
 import Constants from '../utils/constants';
+import Docs from './docs/Docs';
 import HUD from './HUD';
 import React, {Component} from 'react';
 import Radium, {StyleRoot} from 'radium';
@@ -29,7 +30,7 @@ export const Type = {
 @Radium
 export default class Page extends Component {
   /**
-   * Gets the reset styles
+   * Gets the reset styles for all pages.
    */
   static getResetStyles() {
     return (
@@ -102,7 +103,7 @@ export default class Page extends Component {
     switch (this.props.type) {
       case Type.DOCS:
         pageBody = [
-          <div>page body for docs</div>
+          <Docs />
         ];
         break;
       case Type.GAME:
@@ -112,6 +113,8 @@ export default class Page extends Component {
           <HUD />,
         ];
         break;
+      default:
+        pageBody = 'Unknown page body';
     }
     return (
       <StyleRoot>
@@ -120,7 +123,9 @@ export default class Page extends Component {
           style={[styles.base]}
         >
           {pageBody}
+          {/* Order of styles matter! */}
           {Page.getResetStyles()}
+          {this.props.type === Type.DOCS ? Docs.getDefaultStyles() : ''}
         </div>
       </StyleRoot>
     );

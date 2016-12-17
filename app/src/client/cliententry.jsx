@@ -5,6 +5,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Page, {Type} from './components/Page';
 
+/**
+ * The home page
+ */
 window.onload = () => {
   ReactDOM.render(<Page type={Type.GAME}/>, document.querySelector('.app'));
   if (DEBUG_MODE) {
