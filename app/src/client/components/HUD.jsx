@@ -10,7 +10,7 @@ import ScoreSummary from './ScoreSummary';
 @Radium
 export default class HUD extends Component {
   render() {
-    let coinCount = 999999;
+    let coinCount = 99999;
 
     const HUD_PADDING = '20px';
     const VIGNETTE_WIDTH = '600px';

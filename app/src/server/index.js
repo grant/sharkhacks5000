@@ -1,7 +1,6 @@
 import api from './api';
+import docs from './docs';
 import express from 'express';
-
-const router = express.Router();
 
 /**
  * The entry point to the server.
@@ -16,6 +15,9 @@ module.exports = (settings) => {
 
   // API
   app.use('/api', api);
+
+  // Docs
+  app.use('/docs', docs);
 
   // Views
   // views is directory for all template files

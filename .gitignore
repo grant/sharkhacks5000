@@ -40,4 +40,4 @@ jspm_packages
 *.lock
 
 /lib/
-/dist/client-bundle.js*
+/dist/

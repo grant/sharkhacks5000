@@ -16,7 +16,10 @@ const paths = {
   sharedSrcJs: 'app/src/shared/**/*.js?(x)',
   allLibTests: 'lib/test/**/*.js',
   clientEntryPoint: 'app/src/client/cliententry.jsx',
+
   clientBundle: 'dist/client-bundle.js?(.map)',
+  docsBundle: 'dist/docs.js?(.map)',
+
   gulpFile: 'gulpfile.babel.js',
   webpackFile: 'webpack.config.babel.js',
   libDir: 'lib',
@@ -25,18 +28,19 @@ const paths = {
 
 gulp.task('lint', () =>
   gulp.src([
-      paths.allSrcJs,
-      paths.gulpFile,
-      paths.webpackFile,
-    ])
-    //.pipe(eslint())
-    //.pipe(eslint.format())
+    paths.allSrcJs,
+    paths.gulpFile,
+    paths.webpackFile,
+  ])
+  //.pipe(eslint())
+  //.pipe(eslint.format())
     .pipe(flow({abort: false}))
 );
 
 gulp.task('clean', () => del([
   paths.libDir,
   paths.clientBundle,
+  paths.docsBundle,
 ]));
 
 gulp.task('build', ['lint', 'clean'], () =>
@@ -50,7 +54,7 @@ gulp.task('test', ['build'], () =>
     .pipe(mocha())
 );
 
-gulp.task('main', ['test'], () =>
+gulp.task('main', ['test'], () => {
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack({
       output: {
@@ -69,8 +73,27 @@ gulp.task('main', ['test'], () =>
       },
     }))
     .pipe(gulp.dest(paths.distDir))
-    .on('error', util.log)
-);
+    .on('error', util.log);
+  gulp.src('app/src/client/docs.jsx')
+    .pipe(webpack({
+      output: {
+        filename: 'docs.js',
+      },
+      devtool: 'source-map',
+      module: {
+        loaders: [{
+          test: /\.jsx?$/,
+          loader: 'babel-loader',
+          exclude: [/node_modules/],
+        }],
+      },
+      resolve: {
+        extensions: ['', '.js', '.jsx'],
+      },
+    }))
+    .pipe(gulp.dest(paths.distDir))
+    .on('error', util.log);
+});
 
 gulp.task('prod', ['clean'], () => {
   gulp.src(paths.clientEntryPoint)

@@ -1,7 +1,7 @@
 import express from 'express';
 
-const api = express();
-api.get('/', function(req, res) {
+const api = express.Router();
+api.get('/', (req, res) => {
   res.send('Welcome to our API!');
 });
 
