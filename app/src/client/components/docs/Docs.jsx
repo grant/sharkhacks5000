@@ -1,3 +1,4 @@
+import docStyles from './docStyles';
 import React, {Component} from 'react';
 import Radium from 'radium';
 
@@ -8,7 +9,11 @@ export default class Docs extends Component {
     return (
       <div className='Docs'>
         <header>
-          <nav className="navigation">
+          <nav className="navigation" style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
             <h1>
               <a><img src='logo'/>SharkHacks API</a>
             </h1>
@@ -19,13 +24,17 @@ export default class Docs extends Component {
             </ul>
           </nav>
         </header>
-        <section>
+        <section style={{
+          color: '#333',
+          maxWidth: '800px',
+          margin: '30px auto',
+        }}>
           <h1 style={{
 
           }}>Documentation</h1>
           <article>
             <p>
-              <em>Welcome to SharkHacks!</em> Get familiar with SharkHacks's API
+              <strong>Welcome to SharkHacks!</strong> Get familiar with SharkHacks's API
             </p>
             <section className='features'>
               <ul className="featureList">
@@ -91,15 +100,7 @@ export default class Docs extends Component {
    * Gets the default styles for the docs page.
    */
   static getDefaultStyles() {
-    return <Radium.Style
-      rules={{
-        'h1': {
-          fontSize: '72px'
-        },
-        'h2': {
-          fontSize: '60px'
-        }
-      }}
-    />
+    return <Radium.Style rules={docStyles} />
+
   }
 }

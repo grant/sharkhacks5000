@@ -6,6 +6,7 @@ export default {
     gray: '#e3dbdf',
   },
   font: {
-    family: 'Courier New'
+    // Courier New
+    family: 'Open Sans, sans-serif'
   }
 };

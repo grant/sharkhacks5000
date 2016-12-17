@@ -1,15 +1,47 @@
-const H1 = '72px';
-const H2 = '60px';
-const H3 = '36px';
-const H4 = '24px';
-const H5 = '16px';
-const H6 = '12px';
+const H1 = '36px';
+const H2 = '24px';
+const H3 = '20px';
+const H4 = '16px';
+const H5 = '12px';
+const H6 = '10px';
 
+/**
+ * We do a lot of element styling here. This is the general style sheet of our docs.
+ */
 export default {
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-}
+  h1: {
+    fontSize: H1
+  },
+  h2: {
+    fontSize: H2
+  },
+  h3: {
+    fontSize: H3
+  },
+  h4: {
+    fontSize: H4
+  },
+  h5: {
+    fontSize: H5
+  },
+  h6: {
+    fontSize: H6
+  },
+  header: {
+    backgroundColor: 'blue',
+    color: 'white',
+  },
+  '.navigation li': {
+    display: 'inline-block',
+    margin: '0 10px',
+  },
+  '.navigation': {
+    padding: '40px',
+  },
+  p: {
+    paddingTop: '20px'
+  },
+  strong: {
+    fontWeight: 500,
+  }
+};
