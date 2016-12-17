@@ -24,7 +24,7 @@ export default class Docs extends Component {
             </ul>
           </nav>
         </header>
-        <section style={{
+        <article style={{
           color: '#333',
           maxWidth: '800px',
           margin: '30px auto',
@@ -32,24 +32,40 @@ export default class Docs extends Component {
           <h1 style={{
 
           }}>Documentation</h1>
-          <article>
+          <section style={{
+            padding: '0 0 20px 0',
+          }}>
             <p>
               <strong>Welcome to SharkHacks!</strong> Get familiar with SharkHacks's API
             </p>
             <section className='features'>
-              <ul className="featureList">
-                <li className="feature sharktank">
-                  <h3>Shark Tank</h3>
-                  <p>Manage your personal aquarium.</p>
-                </li>
-                <li className='feature sharkhacks'>
-                  <h3>Shark Hacks</h3>
-                  <p>Find out how others are using SharkHacks</p>
-                </li>
+              <ul className="featureList" style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                paddingTop: '20px',
+              }}>
+                {[{
+                  name: 'Shark Tank',
+                  description: 'Manage your personal aquarium.',
+                }, {
+                  name: 'Shark Hacks',
+                  description: 'Find out how others are using SharkHacks',
+
+                }].map(feature => {
+                  return <li className="feature" style={{
+                    display: 'inline-block',
+                    width: '40%',
+                    padding: '20px',
+                    boxShadow: '0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1)'
+                  }}>
+                    <h3>{feature.name}</h3>
+                    <p>{feature.description}</p>
+                  </li>;
+                })}
               </ul>
             </section>
-          </article>
-          <article>
+          </section>
+          <section>
             <h2>Try Now</h2>
             <p>Try the SharkHacks5000 API in seconds. Query the number of sharks discovered.</p>
             <section className="codeSnippet">
@@ -60,8 +76,8 @@ export default class Docs extends Component {
               `}</code></pre>
             </section>
             <strong>Usage:</strong> Click "Submit" to send an event to SharkHacks.
-          </article>
-          <article>
+          </section>
+          <section>
             <h2>Getting Started</h2>
             <p>SharkHacks allows you to create sharks on the fly, right from your computer.</p>
             <h2>Hunt Sharks</h2>
@@ -90,8 +106,8 @@ export default class Docs extends Component {
                 <p>Explore some examples for the Shark community, by the Shark community.</p>
               </li>
             </ul>
-          </article>
-        </section>
+          </section>
+        </article>
       </div>
     );
   }
@@ -100,7 +116,7 @@ export default class Docs extends Component {
    * Gets the default styles for the docs page.
    */
   static getDefaultStyles() {
-    return <Radium.Style rules={docStyles} />
+    return <Radium.Style rules={docStyles}/>
 
   }
 }

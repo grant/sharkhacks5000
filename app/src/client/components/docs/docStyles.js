@@ -38,10 +38,13 @@ export default {
   '.navigation': {
     padding: '40px',
   },
-  p: {
-    paddingTop: '20px'
+  'section': {
+    padding: '20px 0',
+  },
+  'section > p': {
+    paddingTop: '15px'
   },
   strong: {
-    fontWeight: 500,
+    fontWeight: 600,
   }
 };

@@ -66,9 +66,6 @@ export default class Page extends Component {
           },
           'a:visited': {
             color: 'inherit',
-          },
-          html: {
-            overflow: 'hidden',
           }
         }}
       />
@@ -125,10 +122,23 @@ export default class Page extends Component {
           {pageBody}
           {/* Order of styles matter! */}
           {Page.getResetStyles()}
+          {this.props.type === Type.GAME ? this.getDefaultStyles() : ''}
           {this.props.type === Type.DOCS ? Docs.getDefaultStyles() : ''}
         </div>
       </StyleRoot>
     );
+  }
+
+  /**
+   * TODO(grant) Move to Game.jsx
+   * @returns {XML}
+   */
+  static getDefaultStyles() {
+    return <Radium.Style rules={{
+      html: {
+        overflow: 'hidden',
+      }
+    }}/>
   }
 }
 
