@@ -122,7 +122,7 @@ export default class Page extends Component {
           {pageBody}
           {/* Order of styles matter! */}
           {Page.getResetStyles()}
-          {this.props.type === Type.GAME ? this.getDefaultStyles() : ''}
+          {this.props.type === Type.GAME ? Page.getDefaultStyles() : ''}
           {this.props.type === Type.DOCS ? Docs.getDefaultStyles() : ''}
         </div>
       </StyleRoot>

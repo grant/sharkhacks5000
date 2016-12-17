@@ -2,6 +2,10 @@ import docStyles from './docStyles';
 import React, {Component} from 'react';
 import Radium from 'radium';
 
+const Colors = {
+  LINK: 'red',
+};
+
 @Radium
 export default class Docs extends Component {
   // Mocking https://stripe.com/docs
@@ -58,7 +62,10 @@ export default class Docs extends Component {
                     padding: '20px',
                     boxShadow: '0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1)'
                   }}>
-                    <h3>{feature.name}</h3>
+                    <h3 style={{
+                      paddingBottom: '10px',
+                      color: Colors.LINK,
+                    }}>{feature.name}</h3>
                     <p>{feature.description}</p>
                   </li>;
                 })}
