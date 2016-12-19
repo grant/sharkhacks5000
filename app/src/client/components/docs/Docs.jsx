@@ -61,6 +61,7 @@ export default class Docs extends Component {
                     display: 'inline-block',
                     width: '40%',
                     padding: '20px',
+                    cursor: 'pointer',
                     boxShadow: '0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1)'
                   }}>
                     <h3 style={{
@@ -77,12 +78,13 @@ export default class Docs extends Component {
             <h2>Try Now</h2>
             <p>Try the SharkHacks5000 API in seconds. Query the number of sharks discovered.</p>
             <section className="codeSnippet">
-              <PrismCode className={'language-javascript'}>{`
-SharkHacks.animals.get({
+              {/* http://prismjs.com/download.html */}
+              {/* See the prism.js comment to see what plugins are installed*/}
+              <pre><PrismCode className={'language-javascript line-numbers'}>
+{`SharkHacks.animals.get({
   type: 'shark'
-});
-                `}
-              </PrismCode>
+});`}
+              </PrismCode></pre>
             </section>
             <strong>Usage:</strong> Click "Submit" to send an event to SharkHacks.
           </section>
