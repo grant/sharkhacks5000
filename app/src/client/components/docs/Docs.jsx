@@ -2,14 +2,11 @@ import docStyles from './docStyles';
 import React, {Component} from 'react';
 import Radium from 'radium';
 import {PrismCode} from 'react-prism';
-
-const Colors = {
-  LINK: 'red',
-};
+import Constants from '../../utils/constants';
 
 @Radium
 export default class Docs extends Component {
-  // Mocking https://stripe.com/docs
+  // Inspired by https://stripe.com/docs
   render() {
     return (
       <div className='Docs'>
@@ -66,7 +63,7 @@ export default class Docs extends Component {
                   }}>
                     <h3 style={{
                       paddingBottom: '10px',
-                      color: Colors.LINK,
+                      color: Constants.color.green,
                     }}>{feature.name}</h3>
                     <p>{feature.description}</p>
                   </li>;
