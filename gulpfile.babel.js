@@ -102,6 +102,7 @@ gulp.task('main', ['test'], () => {
 });
 
 gulp.task('prod', ['clean'], () => {
+  // TODO(grant) make this build the docs entry point (refactor this)
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack({
       output: {
