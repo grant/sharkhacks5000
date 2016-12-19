@@ -29,11 +29,9 @@ export default class Docs extends Component {
         <article style={{
           color: '#333',
           maxWidth: '800px',
-          margin: '30px auto',
+          margin: '0 auto',
         }}>
-          <h1 style={{
-
-          }}>Documentation</h1>
+          <h1>Documentation</h1>
           <section style={{
             padding: '0 0 20px 0',
           }}>
@@ -102,7 +100,6 @@ export default class Docs extends Component {
                 <h5>Integrate our SDKs on your mobile phone.</h5>
               </li>
             </ul>
-            <br/>
             <h2>{"We're here to help!"}</h2>
             <ul className="helpLinks">
               <li>

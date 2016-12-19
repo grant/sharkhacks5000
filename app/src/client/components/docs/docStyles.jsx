@@ -1,3 +1,4 @@
+import Constants from '../../utils/constants';
 const H1 = '36px';
 const H2 = '24px';
 const H3 = '20px';
@@ -10,25 +11,31 @@ const H6 = '10px';
  */
 export default {
   h1: {
+    paddingTop: '30px',
     fontSize: H1
   },
   h2: {
+    paddingTop: '20px',
     fontSize: H2
   },
   h3: {
+    paddingTop: '15px',
     fontSize: H3
   },
   h4: {
+    paddingTop: '10px',
     fontSize: H4
   },
   h5: {
+    paddingTop: '7px',
     fontSize: H5
   },
   h6: {
+    paddingTop: '4px',
     fontSize: H6
   },
   header: {
-    backgroundColor: 'blue',
+    backgroundColor: Constants.color.green,
     color: 'white',
   },
   '.navigation li': {
@@ -38,8 +45,9 @@ export default {
   '.navigation': {
     padding: '40px',
   },
-  'section': {
-    padding: '20px 0',
+  'article > section': {
+    padding: '10px 0',
+    borderBottom: '1px solid #eee',
   },
   'section > p': {
     paddingTop: '15px'
