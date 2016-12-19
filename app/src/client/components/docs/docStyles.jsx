@@ -11,8 +11,10 @@ const H6 = '10px';
  */
 export default {
   h1: {
-    paddingTop: '30px',
     fontSize: H1
+  },
+  'article h1': {
+    paddingTop: '30px',
   },
   h2: {
     paddingTop: '20px',

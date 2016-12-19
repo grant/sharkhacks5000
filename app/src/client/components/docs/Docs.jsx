@@ -17,9 +17,15 @@ export default class Docs extends Component {
             justifyContent: 'space-between',
           }}>
             <h1>
-              <a><img src='logo'/>SharkHacks API</a>
+              <a><img style={{
+                height: '60px',
+                verticalAlign: 'middle',
+              }} src='images/sharkhacksIcon.png'/>SharkHacks API</a>
             </h1>
-            <ul className="buttons">
+            <ul className="buttons" style={{
+              display: 'flex',
+              alignItems: 'center'
+            }}>
               <li><a href='/docs'>Docs</a></li>
               <li><a href='https://medium.com/@sharkhacks5000'>Blog</a></li>
               <li><a href='https://twitter.com/sharkhacks5000'>Contact</a></li>
@@ -29,7 +35,7 @@ export default class Docs extends Component {
         <article style={{
           color: '#333',
           maxWidth: '800px',
-          margin: '0 auto',
+          margin: '20px auto',
         }}>
           <h1>Documentation</h1>
           <section style={{
