@@ -51,6 +51,9 @@ export default class Page extends Component {
           body: {
             lineHeight: 1,
           },
+          a: {
+            textDecoration: 'none',
+          },
           'ol, ul': {
             listStyle: 'none',
           },

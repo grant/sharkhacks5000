@@ -1,4 +1,5 @@
 import docStyles from './docStyles';
+import Button from '../Button';
 import React, {Component} from 'react';
 import Radium from 'radium';
 import {PrismCode} from 'react-prism';
@@ -58,14 +59,19 @@ export default class Docs extends Component {
                   description: 'Find out how others are using SharkHacks',
 
                 }].map(feature => {
-                  return <li className="feature" style={{
+                  return <li className="feature" key={feature.name} style={{
                     display: 'inline-block',
                     width: '40%',
                     padding: '20px',
                     cursor: 'pointer',
-                    boxShadow: '0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1)'
+                    transition: '200ms ease-in-out box-shadow',
+                    boxShadow: '0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1)',
+                    ':hover': {
+                      boxShadow: '0 1px 7px 0 rgba(0,0,0,.17), 0 7px 17px 0 rgba(0,0,0,.2)',
+                    },
                   }}>
                     <h3 style={{
+                      paddingTop: '0',
                       paddingBottom: '10px',
                       color: Constants.color.green,
                     }}>{feature.name}</h3>
@@ -87,12 +93,18 @@ export default class Docs extends Component {
 });`}
               </PrismCode></pre>
             </section>
-            <strong>Usage:</strong> Click "Submit" to send an event to SharkHacks.
+            <Button
+              content='Submit'
+              onClick={() => {
+                console.log('hi');
+              }}
+             />
+            <p><strong>Usage:</strong> Click "Submit" to send an event to SharkHacks.</p>
           </section>
           <section>
             <h2>Getting Started</h2>
             <p>SharkHacks allows you to create sharks on the fly, right from your computer.</p>
-            <h2>Hunt Sharks</h2>
+            <h3>Hunt Sharks</h3>
             <p>SharkHacks enables you to hunt sharks in minutes. Find sharks easily and securely on web or mobile.</p>
             <ul className='platform'>
               <li className="website">
@@ -107,16 +119,20 @@ export default class Docs extends Component {
               </li>
             </ul>
             <h2>{"We're here to help!"}</h2>
-            <ul className="helpLinks">
+            <ul className="helpLinks">{[{
+              href: 'https://www.twitter.com/sharkhacks5000',
+              title: 'Support >',
+              description: "We're always happy to help another shark hacker!",
+            }, {
+              href: '/docs',
+              title: 'Docs >',
+              description: "Explore some examples for the Shark community, by the Shark community.",
+            }].map(helpLink =>
               <li>
-                <h3><a href="https://www.twitter.com/sharkhacks5000">Support &gt;</a></h3>
-                <p>{"We're always happy to help another shark hacker!"}</p>
+                <h3><a href={helpLink.href}>{helpLink.title}</a></h3>
+                <p>{helpLink.description}</p>
               </li>
-              <li>
-                <h3><a href="/docs">Docs &gt;</a></h3>
-                <p>Explore some examples for the Shark community, by the Shark community.</p>
-              </li>
-            </ul>
+            )}</ul>
           </section>
         </article>
       </div>
