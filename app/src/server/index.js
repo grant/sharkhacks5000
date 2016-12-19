@@ -16,7 +16,7 @@ module.exports = (settings) => {
   // API
   app.use('/api', api);
 
-  // Docs
+  // Docs.jsx
   app.use('/docs', docs);
 
   // Views

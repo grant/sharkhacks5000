@@ -1,6 +1,7 @@
 import docStyles from './docStyles';
 import React, {Component} from 'react';
 import Radium from 'radium';
+import {PrismCode} from 'react-prism';
 
 const Colors = {
   LINK: 'red',
@@ -76,11 +77,12 @@ export default class Docs extends Component {
             <h2>Try Now</h2>
             <p>Try the SharkHacks5000 API in seconds. Query the number of sharks discovered.</p>
             <section className="codeSnippet">
-              <pre><code>{`
-                SharkHacks.animals.get({
-                  type: 'shark'
-                }
-              `}</code></pre>
+              <PrismCode className={'language-javascript'}>{`
+SharkHacks.animals.get({
+  type: 'shark'
+});
+                `}
+              </PrismCode>
             </section>
             <strong>Usage:</strong> Click "Submit" to send an event to SharkHacks.
           </section>
@@ -105,7 +107,7 @@ export default class Docs extends Component {
             <h2>{"We're here to help!"}</h2>
             <ul className="helpLinks">
               <li>
-                <h3><a href="twitter.com/sharkhacks5000">Support &gt;</a></h3>
+                <h3><a href="https://www.twitter.com/sharkhacks5000">Support &gt;</a></h3>
                 <p>{"We're always happy to help another shark hacker!"}</p>
               </li>
               <li>
