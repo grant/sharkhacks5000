@@ -110,6 +110,7 @@ export default class Docs extends Component {
               display: 'flex',
               justifyContent: 'space-between',
               paddingTop: '10px',
+              textAlign: 'center',
             }}>{[{
               name: 'desktop',
               description: 'Start tracking sharks on your website with our JavaScript libraries.'
@@ -117,19 +118,30 @@ export default class Docs extends Component {
               name: 'mobile',
               description: 'Integrate our SDKs on your mobile phone.'
             }].map(platform =>
-              <li className={platform.name} style={{
+              <li className={platform.name} key={platform.name} style={{
                 width: '50%',
-                padding: '10px',
+                padding: '10px 0',
+                transition: '200ms ease-in-out color',
+                cursor: 'pointer',
+                ':hover': {
+                  color: Constants.color.blue,
+                },
               }}>
                 <img src={`${platform.name}_browser.png"`} alt={platform.name} />
-                <h4>{`On your ${platform.name}`}</h4>
-                <h5>{platform.description}</h5>
+                <h3>{`On your ${platform.name}`}</h3>
+                <h4 style={{
+                  fontWeight: 100
+                }}>{platform.description}</h4>
               </li>
             )}</ul>
           </section>
           <section>
             <h2>{"We're here to help!"}</h2>
-            <ul className="helpLinks">{[{
+            <ul className="helpLinks" style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>{[{
               href: 'https://www.twitter.com/sharkhacks5000',
               title: 'Support >',
               description: "We're always happy to help another shark hacker!",
@@ -138,8 +150,14 @@ export default class Docs extends Component {
               title: 'Docs >',
               description: "Explore some examples for the Shark community, by the Shark community.",
             }].map(helpLink =>
-              <li>
-                <h3><a href={helpLink.href}>{helpLink.title}</a></h3>
+              <li style={{
+                width: '50%',
+                lineHeight: 1.5,
+                padding: '10px',
+              }}>
+                <h3 style={{
+                  color: Constants.color.green,
+                }}><a href={helpLink.href}>{helpLink.title}</a></h3>
                 <p>{helpLink.description}</p>
               </li>
             )}</ul>
