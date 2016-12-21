@@ -106,14 +106,21 @@ export default class Docs extends Component {
             <p>SharkHacks allows you to create sharks on the fly, right from your computer.</p>
             <h3>Hunt Sharks</h3>
             <p>SharkHacks enables you to hunt sharks in minutes. Find sharks easily and securely on web or mobile.</p>
-            <ul className='platform'>{[{
+            <ul className='platform' style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              paddingTop: '10px',
+            }}>{[{
               name: 'desktop',
               description: 'Start tracking sharks on your website with our JavaScript libraries.'
             }, {
               name: 'mobile',
               description: 'Integrate our SDKs on your mobile phone.'
             }].map(platform =>
-              <li className={platform.name}>
+              <li className={platform.name} style={{
+                width: '50%',
+                padding: '10px',
+              }}>
                 <img src={`${platform.name}_browser.png"`} alt={platform.name} />
                 <h4>{`On your ${platform.name}`}</h4>
                 <h5>{platform.description}</h5>
