@@ -48,7 +48,7 @@ export default {
     padding: '40px',
   },
   'article > section': {
-    padding: '10px 0',
+    padding: '20px 0',
     borderBottom: '1px solid #eee',
   },
   'section > p': {

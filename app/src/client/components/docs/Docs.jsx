@@ -40,7 +40,7 @@ export default class Docs extends Component {
         }}>
           <h1>Documentation</h1>
           <section style={{
-            padding: '0 0 20px 0',
+
           }}>
             <p>
               <strong>Welcome to SharkHacks!</strong> Get familiar with SharkHacks's API
@@ -106,18 +106,21 @@ export default class Docs extends Component {
             <p>SharkHacks allows you to create sharks on the fly, right from your computer.</p>
             <h3>Hunt Sharks</h3>
             <p>SharkHacks enables you to hunt sharks in minutes. Find sharks easily and securely on web or mobile.</p>
-            <ul className='platform'>
-              <li className="website">
-                <img src="desktop_browser.png" alt="Desktop Browser"/>
-                <h4>On your website</h4>
-                <h5>Start tracking sharks on your website with our JavaScript libraries.</h5>
+            <ul className='platform'>{[{
+              name: 'desktop',
+              description: 'Start tracking sharks on your website with our JavaScript libraries.'
+            }, {
+              name: 'mobile',
+              description: 'Integrate our SDKs on your mobile phone.'
+            }].map(platform =>
+              <li className={platform.name}>
+                <img src={`${platform.name}_browser.png"`} alt={platform.name} />
+                <h4>{`On your ${platform.name}`}</h4>
+                <h5>{platform.description}</h5>
               </li>
-              <li className="mobile">
-                <img src="mobile_browser.png" alt="Mobile Browser"/>
-                <h4>On your phone</h4>
-                <h5>Integrate our SDKs on your mobile phone.</h5>
-              </li>
-            </ul>
+            )}</ul>
+          </section>
+          <section>
             <h2>{"We're here to help!"}</h2>
             <ul className="helpLinks">{[{
               href: 'https://www.twitter.com/sharkhacks5000',
