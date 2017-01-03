@@ -2,16 +2,19 @@
 
 import del from 'del';
 import gulp from 'gulp';
+import gutil from 'gulp-util';
 import babel from 'gulp-babel';
 import eslint from 'gulp-eslint';
 import flow from 'gulp-flowtype';
 import util from 'gulp-util';
 import mocha from 'gulp-mocha';
+var path = require('path');
 import webpack from 'webpack-stream';
+import WebpackDevServer from 'webpack-dev-server';
 var w = require('webpack');
 
 const fileNames = {
-  indexBundle: 'client-bundle.js'
+  indexBundle: 'index.js'
 };
 
 const paths = {
@@ -23,8 +26,7 @@ const paths = {
   clientEntryPoint: 'app/src/client/cliententry.jsx',
   docsEntryPoint: 'app/src/client/docs.jsx',
 
-  clientBundle: 'dist/client-bundle.js?(.map)',
-  docsBundle: 'dist/docs.js?(.map)',
+  dist: 'dist/**/*.js?(.map)',
 
   gulpFile: 'gulpfile.babel.js',
   webpackFile: 'webpack.config.babel.js',
@@ -32,21 +34,55 @@ const paths = {
   distDir: 'dist',
 };
 
+const config = {
+  watch: true,
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/dev-server',
+    'app/src/client/cliententry.jsx'
+  ],
+
+  output: {
+    path: path.join(__dirname, 'dist/'),
+    publicPath: '/dist/',
+    filename: 'index.js',
+  },
+
+  module: {
+    loaders: [
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
+    ]
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.css'],
+    modulesDirectories: [
+      'node_modules',
+      path.join(__dirname, 'src')
+    ]
+  },
+
+  plugins: [
+    new w.HotModuleReplacementPlugin()
+  ]
+};
+
 gulp.task('lint', () =>
   gulp.src([
     paths.allSrcJs,
     paths.gulpFile,
-    paths.webpackFile,
   ])
   //.pipe(eslint())
   //.pipe(eslint.format())
-    .pipe(flow({abort: false}))
+    .pipe(flow({
+      abort: false,
+    }))
 );
 
 gulp.task('clean', () => del([
   paths.libDir,
-  paths.clientBundle,
-  paths.docsBundle,
+  paths.distDir,
 ]));
 
 gulp.task('build', ['lint', 'clean'], () =>
@@ -54,6 +90,37 @@ gulp.task('build', ['lint', 'clean'], () =>
     .pipe(babel())
     .pipe(gulp.dest(paths.libDir))
 );
+
+gulp.task('webpack-dev-server', (callback) => {
+  var server = new WebpackDevServer(w(config), {
+    publicPath: '/dist/',
+    contentBase: 'dist',
+    hot: true,
+    inline: true,
+    noInfo: true,
+    quiet: true,
+    stats: { colors: true }
+  });
+
+  server.listen(8080, "localhost", function() {});
+
+  gutil.log('[webpack-dev-server]',
+    'http://localhost:8080/webpack-dev-server/build/index.html');
+
+  callback();
+});
+gulp.task('webpack', function (callback) {
+  w(config, function (err, stats) {
+    if (err) {
+      throw new gutil.PluginError('webpack', err);
+    }
+
+    gutil.log('[webpack]', stats.toString({
+      colors: true
+    }));
+  });
+});
+
 
 gulp.task('test', ['build'], () =>
   gulp.src(paths.allLibTests)
@@ -141,4 +208,10 @@ gulp.task('watch', () => {
   gulp.watch(paths.allSrcJs, ['main']);
 });
 
-gulp.task('default', ['watch', 'main']);
+gulp.task('dev', [
+  'webpack-dev-server',
+  'webpack'
+]);
+gulp.task('default', ['dev'])
+
+// gulp.task('default', ['watch', 'main']);
