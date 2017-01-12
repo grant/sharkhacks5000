@@ -2,7 +2,7 @@ import docStyles from './docStyles';
 import Button from '../Button';
 import React, {Component} from 'react';
 import Radium from 'radium';
-import {PrismCode} from 'react-prism';
+// import {PrismCode} from 'react-prism';
 import Constants from '../../utils/constants';
 
 @Radium
@@ -87,11 +87,11 @@ export default class Docs extends Component {
             <section className="codeSnippet">
               {/* http://prismjs.com/download.html */}
               {/* See the prism.js comment to see what plugins are installed*/}
-              <pre><PrismCode className={'language-javascript line-numbers'}>
+              {/* <pre><PrismCode className={'language-javascript line-numbers'}>
 {`SharkHacks.animals.get({
   type: 'shark'
 });`}
-              </PrismCode></pre>
+              </PrismCode></pre>*/}
             </section>
             <Button
               content='Submit'

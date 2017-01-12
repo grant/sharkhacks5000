@@ -7,23 +7,40 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/babel-cli/bin/babel-node.js index.js --presets es2015,stage-2",
-    "view": "open http://localhost:5000/"
+    "start": "./node_modules/babel-cli/bin/babel-node.js --presets es2015,stage-0 server.js",
+    "lint": "eslint src"
   },
   "eslintConfig": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parser": "babel-eslint",
     "extends": [
       "airbnb",
       "plugin:flowtype/recommended"
     ],
-    "parser": "babel-eslint",
     "plugins": [
+      "react",
       "import",
       "flowtype"
     ],
-    "env": {
-      "browser": true
-    },
     "rules": {
+      "quotes": [
+        2,
+        "single"
+      ],
+      "strict": [
+        2,
+        "never"
+      ],
+      "react/jsx-uses-react": 2,
+      "react/jsx-uses-vars": 2,
+      "react/react-in-jsx-scope": 2,
       "new-cap": [
         2,
         {
@@ -39,64 +56,57 @@
     "presets": [
       "latest",
       "react",
-      "flow"
+      "flow",
+      "stage-0"
     ],
-    "compact": false
-  },
-  "dependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.0.0",
-    "babel-loader": "^6.2.5",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-decorators": "^6.13.0",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-es2015-destructuring": "^6.19.0",
-    "babel-polyfill": "^6.16.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-flow": "^1.0.0",
-    "babel-preset-latest": "^6.16.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "babel-preset-stage-2": "^6.18.0",
-    "chai": "^3.5.0",
-    "del": "^2.2.2",
-    "eslint": "^3.8.1",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-flowtype": "^2.21.0",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.4.1",
-    "express": "4.13.3",
-    "express-subdomain": "^1.0.5",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1",
-    "gulp-flowtype": "^1.0.0",
-    "gulp-mocha": "^3.0.1",
-    "gulp-util": "^3.0.7",
-    "immutable": "^3.8.1",
-    "jade": "^1.11.0",
-    "mocha": "^3.1.2",
-    "radium": "^0.18.1",
-    "raf": "^3.3.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-prism": "^4.0.0",
-    "react-redux": "^4.4.5",
-    "redux": "^3.6.0",
-    "redux-actions": "^0.12.0",
-    "redux-immutable": "^3.0.8",
-    "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2",
-    "webpack-stream": "^3.2.0",
-    "webpack-uglify-js-plugin": "^1.1.9"
+    "compact": false,
+    "plugins": [
+      "add-module-exports",
+      "transform-decorators-legacy",
+      "babel-plugin-transform-es2015-destructuring"
+    ],
+    "ignore": [
+      "**/vendor/*.js",
+      "**/generated/*.js",
+      "**/node_modules/**"
+    ]
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/grant/sharkhacks5000"
   },
   "keywords": [],
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grant/sharkhacks5000/issues"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.20",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^6.0.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-flow": "^1.0.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.6.2",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "radium": "^0.18.1",
+    "raf": "^3.3.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-prism": "^4.0.0"
+  }
 }

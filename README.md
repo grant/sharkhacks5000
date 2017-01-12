@@ -8,12 +8,6 @@ yarn
 npm start
 ```
 
-### Develop
-Watch for javascript
-```sh
-gulp
-```
-
 ### Deploy
 Using the [heroku toolbelt](https://devcenter.heroku.com/articles/heroku-cli).
 ```sh

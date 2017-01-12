@@ -1,4 +1,5 @@
-const GREEN = 'rgb(162, 198, 150)';
+// const GREEN = 'rgb(162, 198, 150)';
+const GREEN = 'rgb(112, 198, 150)';
 
 export default {
   DEBUG_MODE: false,
