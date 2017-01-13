@@ -45,7 +45,9 @@ import Sea from './Sea/Sea';
 export default class World extends Component {
   render() {
     let isBlurred = false;
+    let depth = 300;
     let styles = {
+      marginTop: `-${depth}px`,
       overflow: 'hidden',
       transition: '1s filter linear',
     };
