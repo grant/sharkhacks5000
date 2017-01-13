@@ -20,16 +20,13 @@ export const Type = {
 export default class Fish extends Component {
   render() {
     const fishImg = `images/fish${this.props.type}.png`;
-    let direction = 1;
-    let left = '10%';
-    let top = '120%';
     return (
       <li className='Fish' style={{
         position: 'absolute',
         left: this.props.left,
         top: this.props.top,
         transition: 'ease-in-out 200ms',
-        transform: `scaleX(${direction})`,
+        transform: `scaleX(${this.props.direction})`,
       }}>
         <img ref='img' style={{
           width: '100%',
@@ -40,11 +37,13 @@ export default class Fish extends Component {
 }
 
 Fish.propTypes = {
+  direction: React.PropTypes.number,
   type: React.PropTypes.string.isRequired,
   left: React.PropTypes.string,
   top: React.PropTypes.string,
 };
 
 Fish.defaultProps = {
+  direction: 1,
   type: '???',
 };

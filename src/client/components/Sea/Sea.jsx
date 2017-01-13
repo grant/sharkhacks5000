@@ -59,7 +59,7 @@ export default class Sea extends Component {
     }, {
       type: Type.Medium2,
     }];
-    let x = (this.state.gameTime/1000)%100;
+    let x = (this.state.gameTime/100)%100;
     return <ul className='all-fish' style={{
       position: 'absolute',
       width: '100%',
@@ -68,6 +68,7 @@ export default class Sea extends Component {
     }}>
       {allFish.map(fish => {
         return <Fish
+          direction={-1}
           type={fish.type}
           left={`${x}%`}
           top="20%"
