@@ -23,9 +23,9 @@ export default class Fish extends Component {
     return (
       <li className='Fish' style={{
         position: 'absolute',
+        width: '120px',
         left: this.props.left,
         top: this.props.top,
-        transition: 'ease-in-out 200ms',
         transform: `scaleX(${this.props.direction})`,
       }}>
         <img ref='img' style={{
