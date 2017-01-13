@@ -26,8 +26,8 @@ export default class Fish extends Component {
     return (
       <li className='Fish' style={{
         position: 'absolute',
-        left,
-        top,
+        left: this.props.left,
+        top: this.props.top,
         transition: 'ease-in-out 200ms',
         transform: `scaleX(${direction})`,
       }}>
@@ -41,6 +41,8 @@ export default class Fish extends Component {
 
 Fish.propTypes = {
   type: React.PropTypes.string.isRequired,
+  left: React.PropTypes.string,
+  top: React.PropTypes.string,
 };
 
 Fish.defaultProps = {

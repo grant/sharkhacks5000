@@ -41,3 +41,7 @@ jspm_packages
 
 /lib/
 /dist/
+.DS_Store
+index.html
+server.js
+src/

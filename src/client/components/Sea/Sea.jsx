@@ -7,9 +7,19 @@ import Trenches from './zones/Trenches';
 import MidnightZone from './zones/MidnightZone';
 import SunlightZone from './zones/SunlightZone';
 import TwilightZone from './zones/TwilightZone';
+import GameLoop from '../../utils/gameloop';
 
 @Radium
 export default class Sea extends Component {
+  constructor() {
+    super();
+    GameLoop.tickListeners.push((gameLoop) => {
+      this.setState({
+        gameTime: gameLoop.gameTime
+      });
+    })
+  }
+
   render() {
     /**
      * Ocean layers
@@ -27,7 +37,7 @@ export default class Sea extends Component {
         backgroundColor: 'red',
         position: 'relative',
       }}>
-        {Sea.getAllFish()}
+        {this.getAllFish()}
         <div className='backgrounds'>
           <Surface />
           <SunlightZone />
@@ -43,12 +53,13 @@ export default class Sea extends Component {
   /**
    * Gets all the fish in the sea.
    */
-  static getAllFish() {
+  getAllFish() {
     let allFish = [{
       type: Type.Small1,
     }, {
       type: Type.Medium2,
     }];
+    let x = (this.state.gameTime/1000)%100;
     return <ul className='all-fish' style={{
       position: 'absolute',
       width: '100%',
@@ -56,7 +67,11 @@ export default class Sea extends Component {
       zIndex: 100,
     }}>
       {allFish.map(fish => {
-        return <Fish type={fish.type} />
+        return <Fish
+          type={fish.type}
+          left={`${x}%`}
+          top="20%"
+        />
       })}
     </ul>;
   }
