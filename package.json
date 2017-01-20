@@ -1,6 +1,6 @@
 {
   "name": "sharkhacks5000",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A hackathon on a boat",
   "engines": {
     "node": "5.9.1"
